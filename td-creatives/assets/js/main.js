@@ -253,8 +253,17 @@
       $('roi-annual').textContent = fmt(net * 12);
       $('roi-roi').textContent = Math.round(net / cost * 100).toLocaleString() + '%';
     };
+    // Paint the purple progress fill to the left of each thumb.
+    var paint = function (el) {
+      var min = +el.min || 0, max = +el.max || 100;
+      var pct = max === min ? 0 : ((+el.value - min) / (max - min)) * 100;
+      el.style.setProperty('--pct', pct + '%');
+    };
     if (inputs.calls && inputs.rate && inputs.value) {
-      Object.keys(inputs).forEach(function (k) { inputs[k].addEventListener('input', recompute); });
+      Object.keys(inputs).forEach(function (k) {
+        paint(inputs[k]);
+        inputs[k].addEventListener('input', function () { paint(this); recompute(); });
+      });
       recompute();
     }
   }
