@@ -61,7 +61,7 @@ git push -u origin main
 
 - [ ] Every internal link resolves (crawl with `wget --spider -r http://localhost:8000` or a link checker)
 - [ ] No console errors on any page
-- [ ] Contact form works end-to-end (see wiring notes below)
+- [ ] Contact form works end-to-end — needs the one-time FormSubmit activation click (see wiring notes below)
 - [ ] Favicon shows in the browser tab
 - [ ] `/sitemap.xml` and `/robots.txt` reachable on the live domain
 - [ ] HTTPS forcing works (http:// and www. both redirect)
@@ -71,10 +71,10 @@ git push -u origin main
 
 ## Not included / needs wiring
 
-- **Form backend.** The contact form validates client-side and currently opens a pre-filled `mailto:` message (honeypot included), then routes to `thank-you.html`. To capture submissions server-side, set the form's `action=""` in `contact.html` to your endpoint (Formspree, FormSubmit, Netlify Forms, or your own) and remove the mailto handler at the bottom of `assets/js/main.js`. Add reCAPTCHA or similar spam protection at the same time.
+- ~~**Form backend.**~~ **Wired (2026-08-06).** The contact form validates client-side, then POSTs via AJAX to FormSubmit at `https://formsubmit.co/ajax/hello@tdcreativesagency.com` and routes to `thank-you.html`. Same provider the Next.js build uses. Configure it on the `<form>` tag in `contact.html`: `data-email` changes the destination inbox, `data-endpoint` swaps providers entirely, and the `action` + `_next` hidden field are the no-JS fallback. Honeypot (`company_website_url`) blocks bots; if the request fails, the user is offered a pre-filled `mailto:` so no lead is lost. **FormSubmit requires a one-time activation:** the first submission emails a confirmation link to `hello@tdcreativesagency.com` that must be clicked.
 - **Blog imagery.** Article hero/inline images and blog-card thumbnails still point at the existing WordPress uploads on `tdcreativesagency.com/wp-content/...`. They work in production because that's the same domain, but for full self-containment download them into `assets/img/` and update the `src` attributes in `blog/*.html`.
 - **CallBot voice demo audio** (`after-hours-callbot.html`) streams from `afterhourscallbot.com` — external by design.
-- **Analytics.** None included. Add your snippet before `</head>` on each page (placeholder-free by policy — no IDs committed).
+- ~~**Analytics.**~~ **Installed (2026-08-06).** Google Analytics 4 (`G-SWRC8LC9FQ`, same property as the live site) loads via `gtag.js` before `</head>` on all 28 pages. The contact form also fires a `generate_lead` event on successful submission.
 - **AI website chat assistant.** The live design's floating chat assistant requires an AI backend and is not reproducible statically; it is omitted.
 - **Tweaks/theme switcher.** A design-review tool, intentionally excluded from production.
 - **DNS / SSL certificate** provisioning.

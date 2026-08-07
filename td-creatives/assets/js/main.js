@@ -259,19 +259,31 @@
     }
   }
 
-  /* ── Contact form: validate → mailto (see README for wiring a real
-       endpoint into action="") ─────────────────────────────────────── */
+  /* ── Contact form: validate → POST to FormSubmit (AJAX) → thank-you.
+       Endpoint is set on the form's data-endpoint attribute in contact.html.
+       If the network call fails, we fall back to a prefilled mailto so a
+       lead is never silently lost. ─────────────────────────────────────── */
   var form = document.getElementById('contact-form');
   if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var hp = form.querySelector('[name="company_website_url"]');
-      if (hp && hp.value) return; // honeypot — silently drop bots
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-      var d = new FormData(form);
-      var needs = [];
-      form.querySelectorAll('input[name="needs"]:checked').forEach(function (c) { needs.push(c.value); });
-      var lines = [
+    var TO = form.getAttribute('data-email') || 'hello@tdcreativesagency.com';
+    var ENDPOINT = form.getAttribute('data-endpoint') || ('https://formsubmit.co/ajax/' + TO);
+    var btn = form.querySelector('.pp-leadform__submit');
+    var btnHTML = btn ? btn.innerHTML : '';
+    var status = document.createElement('div');
+    status.className = 'pp-leadform__status';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    status.style.cssText = 'margin-top:12px;font-size:14px;line-height:1.5;display:none';
+    if (btn && btn.parentNode) { btn.parentNode.insertBefore(status, btn.nextSibling); }
+
+    var say = function (msg, color) {
+      status.innerHTML = msg;
+      status.style.color = color || '#AEB2C9';
+      status.style.display = 'block';
+    };
+
+    var buildLines = function (d, needs) {
+      return [
         'Name: ' + d.get('name'),
         'Business Name: ' + (d.get('business') || '\u2014'),
         'Email: ' + d.get('email'),
@@ -284,9 +296,55 @@
         'Target audience: ' + (d.get('audience') || '\u2014'),
         'What makes it unique: ' + (d.get('unique') || '\u2014')
       ];
+    };
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var hp = form.querySelector('[name="company_website_url"]');
+      if (hp && hp.value) return; // honeypot — silently drop bots
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      var d = new FormData(form);
+      var needs = [];
+      form.querySelectorAll('input[name="needs"]:checked').forEach(function (c) { needs.push(c.value); });
       var subject = 'New project inquiry \u2014 ' + (d.get('business') || d.get('name'));
-      window.location.href = 'mailto:hello@tdcreativesagency.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
-      setTimeout(function () { window.location.href = 'thank-you.html'; }, 600);
+
+      var payload = new FormData();
+      payload.append('Name', d.get('name') || '');
+      payload.append('Business Name', d.get('business') || '');
+      payload.append('Email', d.get('email') || '');
+      payload.append('Phone', d.get('phone') || '');
+      payload.append('Current Website', d.get('website') || '');
+      payload.append('Needs', needs.join(', '));
+      payload.append('What the business does', d.get('does') || '');
+      payload.append('Products / services', d.get('offers') || '');
+      payload.append('Target audience', d.get('audience') || '');
+      payload.append('What makes it unique', d.get('unique') || '');
+      payload.append('_subject', subject);
+      payload.append('_template', 'table');
+      payload.append('_captcha', 'false');
+      if (d.get('email')) { payload.append('_replyto', d.get('email')); }
+
+      if (btn) { btn.disabled = true; btn.innerHTML = 'Sending\u2026'; }
+      say('Sending your details\u2026');
+
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: payload
+      }).then(function (res) {
+        if (!res.ok) { throw new Error('HTTP ' + res.status); }
+        return res.json().catch(function () { return {}; });
+      }).then(function () {
+        try { if (window.gtag) { gtag('event', 'generate_lead', { form: 'contact' }); } } catch (err) {}
+        window.location.href = 'thank-you.html';
+      }).catch(function () {
+        if (btn) { btn.disabled = false; btn.innerHTML = btnHTML; }
+        say('We couldn\u2019t send that automatically. <a href="mailto:' + TO +
+            '?subject=' + encodeURIComponent(subject) +
+            '&body=' + encodeURIComponent(buildLines(d, needs).join('\n')) +
+            '">Click here to email it to us instead</a> \u2014 or call 805-225-4843.', '#FFB4B4');
+      });
     });
   }
 })();

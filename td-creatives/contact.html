@@ -26,6 +26,14 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   
   <script src="assets/js/main.js" defer></script>
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SWRC8LC9FQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SWRC8LC9FQ');
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -78,10 +86,17 @@
             </div>
           </div>
           <div class="pp-reveal" style="--d:120ms">
-            <!-- action="" is a placeholder: main.js currently builds a mailto:
-                 message from these fields. See README § "Not included / needs
-                 wiring" to connect a real form endpoint + spam protection. -->
-            <form class="pp-leadform pp-contactform" id="contact-form" action="" novalidate>
+            <!-- Submissions POST via AJAX to FormSubmit (see assets/js/main.js).
+                 Change the destination inbox with data-email, or swap providers
+                 entirely with data-endpoint. Honeypot field below blocks bots. -->
+            <form class="pp-leadform pp-contactform" id="contact-form" method="POST"
+                  action="https://formsubmit.co/hello@tdcreativesagency.com"
+                  data-email="hello@tdcreativesagency.com"
+                  data-endpoint="https://formsubmit.co/ajax/hello@tdcreativesagency.com" novalidate>
+              <input type="hidden" name="_subject" value="New project inquiry — TD Creatives">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://tdcreativesagency.com/thank-you.html">
               <h3>Tell us about your project</h3>
               <p class="k">The more detail you share, the better the plan we can bring back.</p>
               <div class="pp-field pp-field--row">
