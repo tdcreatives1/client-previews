@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Request a Quote | Outsourced Administrative Services, LLC | 661-747-7171</title>
+<meta name="description" content="Request a quote for outsourced administrative support. Email hello@oas-llc.com or call 661-747-7171, Monday through Friday 9AM–5PM PT. Serving Kern County, Sacramento County, California, and small businesses nationwide."/>
+<meta name="keywords" content="request administrative services quote, hire executive assistant California, Kern County administrative support contact, Sacramento executive assistant contact, outsourced admin services quote"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta property="og:title" content="Request a Quote | Outsourced Administrative Services, LLC"/>
+<link rel="canonical" href="https://oas-llc.com/contact"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Source+Sans+3:ital,wght@0,300..700;1,400&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#FBFAF7;color:#333849;font-family:'Source Sans 3',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a{color:#1B2A55}
+a:hover{color:#A9822C}
+h1,h2,h3{font-family:Marcellus,'Times New Roman',Georgia,serif;font-weight:400;color:#14224F}
+input,textarea,select,button{font:inherit}
+</style>
+</helmet>
+
+<dc-import name="SiteNav" hint-size="100%,70px"></dc-import>
+
+<main>
+  <section style="max-width:1180px;margin:0 auto;padding:clamp(40px,5vw,76px) 22px clamp(56px,7vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(30px,4vw,56px);align-items:start">
+    <div style="display:grid;gap:clamp(28px,3vw,40px)">
+      <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="width:34px;height:1px;background:#C39A3E"></span>
+        <span style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#A9822C;font-weight:600">Contact</span>
+      </div>
+      <h1 style="margin:0;font-size:clamp(32px,4.2vw,52px);line-height:1.1;max-width:26ch">Request a quote</h1>
+      <p style="margin:20px 0 0;font-size:clamp(17px,1.4vw,19px);line-height:1.7;color:#4A4F60;max-width:52ch">Send a short description of the work. You will get a direct reply from Paula with a quote, a timeline, and any questions she needs answered first.</p>
+      </div>
+      <div style="border:1px solid #E0D9C8;background:#FFFFFF;padding:clamp(24px,3vw,34px)">
+      <h2 style="margin:0 0 22px;font-size:20px">What happens next</h2>
+      <div style="display:grid;gap:20px">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start">
+            <span style="font-family:Marcellus,serif;font-size:15px;color:#C39A3E;border:1px solid #E0D9C8;width:34px;height:34px;display:grid;place-items:center">{{ s.num }}</span>
+            <div>
+              <div style="font-family:Marcellus,serif;font-size:18px;color:#14224F">{{ s.title }}</div>
+              <p style="margin:5px 0 0;font-size:15px;line-height:1.65;color:#5B6072">{{ s.body }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      </div>
+      <form onSubmit="{{ onSubmitQuote }}" action="mailto:hello@oas-llc.com?subject=Quote%20request%20from%20the%20website" method="post" encType="text/plain" style="display:grid;gap:16px;background:#FFFFFF;border:1px solid #E0D9C8;padding:clamp(24px,3vw,34px)">
+      <label style="display:grid;gap:7px;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#6A6F80;font-weight:600"><span>Name <span style="color:#A9822C">*</span></span>
+        <input name="name" required="required" autoComplete="name" style="border:1px solid #D8D1BF;background:#FBFAF7;padding:12px 13px;font-size:16px;color:#333849;border-radius:2px;text-transform:none;letter-spacing:normal;font-weight:400"/>
+      </label>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px">
+        <label style="display:grid;gap:7px;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#6A6F80;font-weight:600"><span>Email <span style="color:#A9822C">*</span></span>
+          <input name="email" type="email" required="required" autoComplete="email" style="border:1px solid #D8D1BF;background:#FBFAF7;padding:12px 13px;font-size:16px;color:#333849;border-radius:2px;text-transform:none;letter-spacing:normal;font-weight:400"/>
+        </label>
+        <label style="display:grid;gap:7px;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#6A6F80;font-weight:600"><span>Phone <span style="color:#A9822C">*</span></span>
+          <input name="phone" type="tel" required="required" autoComplete="tel" style="border:1px solid #D8D1BF;background:#FBFAF7;padding:12px 13px;font-size:16px;color:#333849;border-radius:2px;text-transform:none;letter-spacing:normal;font-weight:400"/>
+        </label>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px">
+        <label style="display:grid;gap:7px;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#6A6F80;font-weight:600"><span>Business <span style="color:#A9822C">*</span></span>
+          <input name="business" required="required" style="border:1px solid #D8D1BF;background:#FBFAF7;padding:12px 13px;font-size:16px;color:#333849;border-radius:2px;text-transform:none;letter-spacing:normal;font-weight:400"/>
+        </label>
+        <label style="display:grid;gap:7px;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#6A6F80;font-weight:600"><span>Location <span style="color:#A9822C">*</span></span>
+          <input name="location" required="required" placeholder="City, State" style="border:1px solid #D8D1BF;background:#FBFAF7;padding:12px 13px;font-size:16px;color:#333849;border-radius:2px;text-transform:none;letter-spacing:normal;font-weight:400"/>
+        </label>
+      </div>
+      <label style="display:grid;gap:7px;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#6A6F80;font-weight:600"><span>Service needed <span style="color:#A9822C">*</span></span>
+        <select name="service" required="required" value="{{ serviceValue }}" onChange="{{ onServiceChange }}" style="border:1px solid #D8D1BF;background:#FBFAF7;padding:12px 13px;font-size:16px;color:#333849;border-radius:2px;text-transform:none;letter-spacing:normal;font-weight:400">
+          <option value="" disabled="disabled">Select a service…</option>
+          <sc-for list="{{ options }}" as="o" hint-placeholder-count="9">
+            <option value="{{ o }}">{{ o }}</option>
+          </sc-for>
+        </select>
+      </label>
+      <label style="display:grid;gap:7px;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#6A6F80;font-weight:600"><span>What needs handling? <span style="color:#A9822C">*</span></span>
+        <textarea name="details" rows="5" required="required" style="border:1px solid #D8D1BF;background:#FBFAF7;padding:12px 13px;font-size:16px;color:#333849;border-radius:2px;resize:vertical;text-transform:none;letter-spacing:normal;font-weight:400"></textarea>
+      </label>
+      <button type="submit" style="background:#14224F;color:#FDFBF4;border:none;border-bottom:2px solid #C39A3E;padding:17px 24px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;font-size:13px;cursor:pointer;border-radius:2px" style-hover="background:#0B1633">Request a Quote</button>
+      <p style="margin:0;font-size:13.5px;color:#8A8578;line-height:1.6">Sends to <a href="mailto:hello@oas-llc.com" style="font-weight:600">hello@oas-llc.com</a>. You can also email her directly.</p>
+    </form>
+
+    </div>
+
+    <div style="position:sticky;top:82px;display:grid;gap:22px">
+      <div style="border:1px solid #E7E1D4;background:#FFFFFF;padding:28px 26px">
+        <h2 style="margin:0 0 18px;font-size:21px">Direct contact</h2>
+        <div style="display:grid;gap:14px;font-size:16.5px">
+          <div>
+            <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8A8578;margin-bottom:3px">Phone</div>
+            <a href="tel:6617477171" style="text-decoration:none;font-weight:600">661-747-7171</a>
+          </div>
+          <div>
+            <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8A8578;margin-bottom:3px">Email</div>
+            <a href="mailto:hello@oas-llc.com" style="text-decoration:none;font-weight:600">hello@oas-llc.com</a>
+          </div>
+          <div>
+            <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8A8578;margin-bottom:3px">LinkedIn</div>
+            <a href="https://www.linkedin.com/in/paula-daoutis-3a71164b/" target="_blank" rel="noopener" style="text-decoration:none;font-weight:600">Paula Daoutis</a>
+          </div>
+          <div>
+            <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8A8578;margin-bottom:3px">Hours</div>
+            <span>Monday–Friday, 9AM–5PM PT</span>
+          </div>
+        </div>
+      </div>
+      <div style="border:1px solid #E7E1D4;background:#F4F0E4;padding:28px 26px">
+        <h2 style="margin:0 0 14px;font-size:21px">Service areas</h2>
+        <p style="margin:0 0 14px;font-size:15.5px;line-height:1.7;color:#4A4F60">Remote support for small businesses anywhere in the United States, with concentrated service in California.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:15.5px">
+          <a href="Kern-County.dc.html" style="text-decoration:none">Kern County, CA →</a>
+          <a href="Sacramento-County.dc.html" style="text-decoration:none">Sacramento County, CA →</a>
+        </div>
+        <p style="margin:16px 0 0;font-size:15.5px;line-height:1.7;color:#4A4F60">Travel available for onsite engagements.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { service: "" };
+  renderVals() {
+    return {
+      serviceValue: this.state.service,
+      onSubmitQuote: (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        const order = ["name", "email", "phone", "business", "location", "service", "details"];
+        const label = { name: "Name", email: "Email", phone: "Phone", business: "Business", location: "Location", service: "Service needed", details: "Details" };
+        const body = order.map((k) => label[k] + ": " + (fd.get(k) || "")).join("\n\n");
+        window.location.href = "mailto:hello@oas-llc.com?subject=" + encodeURIComponent("Quote request from the website") + "&body=" + encodeURIComponent(body);
+      },
+      onServiceChange: (e) => this.setState({ service: e.target.value }),
+      steps: [
+        { num: "01", title: "You send the details", body: "A few sentences about the work, the timeline, and where you are located." },
+        { num: "02", title: "Paula replies directly", body: "Usually within one business day, with a quote and any questions she needs answered." },
+        { num: "03", title: "Scope agreed in writing", body: "Work starts once you approve the scope, rate, and schedule." }
+      ],
+      options: [
+        "Executive / C-suite administrative support",
+        "Board or executive director support",
+        "Account reconciliation or bookkeeping cleanup",
+        "Special or short-term project",
+        "Calendar, travel & meeting management",
+        "Documents, policies & procedures",
+        "Vendor & contract administration",
+        "Event or conference coordination",
+        "Not sure yet"
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

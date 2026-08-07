@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="background:#FBFAF7;max-width:1180px;margin:0 auto;padding:clamp(14px,2vw,26px) 22px clamp(10px,1.4vw,18px);display:flex;justify-content:center">
+  <a href="Home.dc.html" aria-label="Outsourced Administrative Services LLC home" style="display:block;text-decoration:none">
+    <img src="logo.png" alt="Outsourced Administrative Services LLC logo" style="height:clamp(84px,11vw,132px);width:auto;max-width:100%;display:block;mix-blend-mode:multiply"/>
+  </a>
+</div>
+<div ref="{{ slotRef }}" style="height:{{ slotHeight }}">
+  <header ref="{{ navRef }}" style="position:{{ navPosition }};top:0;left:0;right:0;z-index:60;background:#14224F;border-bottom:2px solid #C39A3E">
+    <div style="max-width:1180px;margin:0 auto;padding:8px 22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 22px">
+      <nav aria-label="Main" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 22px;font-family:'Source Sans 3',system-ui,sans-serif;font-size:15px;letter-spacing:0.01em">
+        <a href="Services.dc.html" style="color:#E7EAF2;text-decoration:none;padding:6px 0" style-hover="color:#C39A3E">Services</a>
+        <a href="About.dc.html" style="color:#E7EAF2;text-decoration:none;padding:6px 0" style-hover="color:#C39A3E">About</a>
+        <a href="Kern-County.dc.html" style="color:#E7EAF2;text-decoration:none;padding:6px 0" style-hover="color:#C39A3E">Kern County</a>
+        <a href="Sacramento-County.dc.html" style="color:#E7EAF2;text-decoration:none;padding:6px 0" style-hover="color:#C39A3E">Sacramento County</a>
+        <a href="#zoom-link-pending" target="_blank" rel="noopener" style="color:#E7EAF2;text-decoration:none;padding:6px 0" style-hover="color:#C39A3E">Zoom Meeting</a>
+        <a href="Contact.dc.html" style="background:#D9B156;color:#14224F;text-decoration:none;padding:10px 20px;border-radius:2px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;font-size:12.5px" style-hover="background:#C39A3E">Request a Quote</a>
+      </nav>
+    </div>
+  </header>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { fixed: false, h: 54 };
+  componentDidMount() {
+    this.check = () => {
+      if (!this.slot || !this.nav) return;
+      const h = Math.round(this.nav.getBoundingClientRect().height) || this.state.h;
+      const top = this.slot.getBoundingClientRect().top;
+      const fixed = this.state.fixed ? top <= 0 : top <= 0;
+      if (fixed !== this.state.fixed || h !== this.state.h) this.setState({ fixed, h });
+    };
+    const scroller = window;
+    scroller.addEventListener("scroll", this.check, { passive: true });
+    window.addEventListener("resize", this.check);
+    setTimeout(this.check, 0);
+    setTimeout(this.check, 400);
+  }
+  componentWillUnmount() {
+    if (this.check) {
+      window.removeEventListener("scroll", this.check);
+      window.removeEventListener("resize", this.check);
+    }
+  }
+  renderVals() {
+    return {
+      navPosition: this.state.fixed ? "fixed" : "static",
+      slotHeight: this.state.fixed ? this.state.h + "px" : "auto",
+      slotRef: (el) => { this.slot = el; },
+      navRef: (el) => { this.nav = el; }
+    };
+  }
+}
+</script>
+</body>
+</html>

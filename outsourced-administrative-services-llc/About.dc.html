@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>About Paula Daoutis | 45 Years of Executive Administrative Experience | OAS LLC</title>
+<meta name="description" content="Paula Daoutis, owner of Outsourced Administrative Services, LLC, brings 45 years of high-level administrative and C-suite executive experience, including service as an executive director. Available remotely nationwide and onsite with travel."/>
+<meta name="keywords" content="Paula Daoutis, executive assistant 45 years experience, former executive director, C-suite administrative support, woman owned administrative business California"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta property="og:title" content="About Paula Daoutis | Outsourced Administrative Services, LLC"/>
+<link rel="canonical" href="https://oas-llc.com/about"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Source+Sans+3:ital,wght@0,300..700;1,400&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#FBFAF7;color:#333849;font-family:'Source Sans 3',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a{color:#1B2A55}
+a:hover{color:#A9822C}
+h1,h2,h3{font-family:Marcellus,'Times New Roman',Georgia,serif;font-weight:400;color:#14224F}
+</style>
+</helmet>
+
+<dc-import name="SiteNav" hint-size="100%,70px"></dc-import>
+
+<main>
+  <section style="max-width:1180px;margin:0 auto;padding:clamp(40px,5vw,80px) 22px clamp(40px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,64px);align-items:center">
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="width:34px;height:1px;background:#C39A3E"></span>
+        <span style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#A9822C;font-weight:600">About</span>
+      </div>
+      <h1 style="margin:0;font-size:clamp(32px,4.2vw,52px);line-height:1.1">Paula Daoutis</h1>
+      <p style="margin:14px 0 24px;font-size:17px;letter-spacing:0.04em;text-transform:uppercase;color:#A9822C;font-weight:600">Owner, Outsourced Administrative Services, LLC</p>
+      <p style="margin:0 0 16px;font-size:17.5px;line-height:1.75;color:#4A4F60;max-width:56ch">Forty-five years of administrative work at the level where accuracy and discretion are not optional. Paula has supported chief executives, owners, and boards, and has served as an executive director — running an organization rather than only supporting one.</p>
+      <p style="margin:0 0 16px;font-size:17.5px;line-height:1.75;color:#4A4F60;max-width:56ch">That perspective changes the work. She reads an agenda the way a director reads it, sees which vendor renewal will become a problem, and knows what a board actually needs in a packet.</p>
+      <p style="margin:0;font-size:17.5px;line-height:1.75;color:#4A4F60;max-width:56ch">Outsourced Administrative Services, LLC was built to make that experience available by the project or by the hour — to a two-person business as readily as to a large organization.</p>
+    </div>
+    <div style="position:relative;max-width:300px;margin:0 auto">
+      <img src="uploads/outsourced-admin-services-llc-paula-daoutis.jpeg" alt="Paula Daoutis, owner of Outsourced Administrative Services, LLC" style="display:block;width:100%;max-width:300px;margin:0 auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 28%;border:1px solid #E0D9C8"/>
+      <div style="position:absolute;left:-10px;top:-10px;width:64px;height:64px;border-left:2px solid #C39A3E;border-top:2px solid #C39A3E"></div>
+    </div>
+  </section>
+
+  <svg style="width:100%;height:12px;display:block;opacity:0.75" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><pattern id="mdr" width="24" height="12" patternUnits="userSpaceOnUse"><path d="M0 9 H6 V3 H18 V9 H24" fill="none" stroke="#C39A3E" stroke-width="1.6"></path></pattern></defs><rect width="100%" height="100%" fill="url(#mdr)"></rect></svg>
+
+  <section style="background:#FFFFFF;border-top:1px solid #EDE8DB;border-bottom:1px solid #EDE8DB">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,6vw,80px) 22px">
+      <h2 style="margin:0 0 36px;font-size:clamp(26px,2.8vw,38px)">Experience at a glance</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+        <sc-for list="{{ facts }}" as="f" hint-placeholder-count="4">
+          <div style="background:#FFFFFF;border:1px solid #EDE8DB;padding:30px 26px">
+            <div style="font-family:Marcellus,serif;font-size:clamp(26px,2.4vw,34px);color:#14224F;line-height:1.15">{{ f.stat }}</div>
+            <p style="margin:10px 0 0;font-size:15.5px;line-height:1.7;color:#5B6072">{{ f.label }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1180px;margin:0 auto;padding:clamp(52px,6vw,88px) 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(30px,4vw,56px)">
+    <div>
+      <h2 style="margin:0 0 20px;font-size:clamp(24px,2.4vw,32px)">How she works</h2>
+      <ul style="margin:0;padding-left:20px;font-size:16.5px;line-height:1.95;color:#4A4F60">
+        <li>You work directly with Paula. No account managers, no rotating assistants.</li>
+        <li>Scope is agreed in writing before work starts.</li>
+        <li>Small and special projects are actively welcomed, not squeezed in.</li>
+        <li>Travel is available for onsite engagements.</li>
+        <li>Confidentiality is assumed on every engagement.</li>
+      </ul>
+    </div>
+    <div>
+      <h2 style="margin:0 0 20px;font-size:clamp(24px,2.4vw,32px)">Who she works with</h2>
+      <p style="margin:0 0 16px;font-size:16.5px;line-height:1.75;color:#4A4F60">Small businesses that need executive-caliber help without a full-time hire. Nonprofits and boards that need meeting cycles run properly. Larger organizations and executives who need a senior pair of hands for a defined stretch of work.</p>
+      <p style="margin:0;font-size:16.5px;line-height:1.75;color:#4A4F60">Clients are based in <a href="Kern-County.dc.html">Kern County</a>, <a href="Sacramento-County.dc.html">Sacramento County</a>, elsewhere in California, and remotely across the United States.</p>
+    </div>
+  </section>
+
+  <section style="background:#F4F0E4;border-top:1px solid #E7E1D4">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(48px,6vw,80px) 22px;text-align:center">
+      <h2 style="margin:0 0 16px;font-size:clamp(26px,2.8vw,38px)">Start with a short conversation</h2>
+      <p style="margin:0 auto 30px;font-size:17px;line-height:1.75;color:#4A4F60;max-width:52ch">Tell her what needs handling and she will tell you whether she is the right fit.</p>
+      <a href="Contact.dc.html" style="display:inline-block;background:#14224F;color:#FDFBF4;text-decoration:none;padding:16px 32px;border-radius:2px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;font-size:13px;border-bottom:2px solid #C39A3E" style-hover="background:#0B1633">Request a Quote</a>
+    </div>
+  </section>
+</main>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      facts: [
+        { stat: "45 years", label: "of high-level administrative and executive support work." },
+        { stat: "C-suite", label: "experience supporting chief executives, owners, and boards." },
+        { stat: "Executive Director", label: "role held personally — leadership from the inside, not just alongside it." },
+        { stat: "Nationwide", label: "remote availability, with travel for onsite engagements." }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
