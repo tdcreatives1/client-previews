@@ -335,7 +335,11 @@
       }).then(function (res) {
         if (!res.ok) { throw new Error('HTTP ' + res.status); }
         return res.json().catch(function () { return {}; });
-      }).then(function () {
+      }).then(function (data) {
+        // FormSubmit answers 200 even when it refuses (e.g. form not activated)
+        if (data && String(data.success) === 'false') {
+          throw new Error(data.message || 'Endpoint rejected the submission');
+        }
         try { if (window.gtag) { gtag('event', 'generate_lead', { form: 'contact' }); } } catch (err) {}
         window.location.href = 'thank-you.html';
       }).catch(function () {
