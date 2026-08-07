@@ -1468,9 +1468,14 @@ footer.foot .bottom {
 .pp-marquee:hover .pp-marquee__track { animation-play-state: paused; }
 @keyframes pp-marq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .pp-marquee__track { animation: none; } }
-.pp-logos__cell { flex: 0 0 auto; height: 40px; display: grid; place-items: center; }
-.pp-logos__cell img { height: 34px; width: auto; max-width: 180px; object-fit: contain; filter: grayscale(1) opacity(0.75); transition: filter .25s ease; }
+.pp-logos__cell { flex: 0 0 auto; height: 76px; display: grid; place-items: center; }
+.pp-logos__cell img { height: 60px; width: auto; max-width: 300px; object-fit: contain; filter: grayscale(1) opacity(0.75); transition: filter .25s ease; }
 .pp-logos__cell:hover img { filter: none; }
+@media (max-width: 640px) {
+  .pp-marquee__track { gap: 44px; }
+  .pp-logos__cell { height: 56px; }
+  .pp-logos__cell img { height: 44px; max-width: 210px; }
+}
 
 /* ═══════════════════════════════════ SERVICES */
 .pp-services { background: var(--bg); }
