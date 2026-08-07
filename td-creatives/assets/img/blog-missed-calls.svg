@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12131F"></stop><stop offset="1" stop-color="#0A0B14"></stop></linearGradient>
+<radialGradient id="glow" cx="0.5" cy="0.42" r="0.55"><stop offset="0" stop-color="#5B53F0" stop-opacity="0.32"></stop><stop offset="1" stop-color="#5B53F0" stop-opacity="0"></stop></radialGradient>
+<linearGradient id="scr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1D2E"></stop><stop offset="1" stop-color="#12131F"></stop></linearGradient>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"></rect>
+<rect width="1200" height="630" fill="url(#glow)"></rect>
+<g transform="translate(492,80)">
+<rect x="0" y="0" width="216" height="470" rx="34" fill="#05060C" stroke="rgba(255,255,255,0.14)" stroke-width="2"></rect>
+<rect x="10" y="10" width="196" height="450" rx="26" fill="url(#scr)"></rect>
+<rect x="82" y="22" width="52" height="7" rx="3.5" fill="#05060C"></rect>
+<text x="108" y="150" text-anchor="middle" fill="#F3F4FB" font-family="sans-serif" font-size="44" font-weight="600">7:42</text>
+<text x="108" y="180" text-anchor="middle" fill="#AEB2C9" font-family="sans-serif" font-size="16">PM</text>
+<circle cx="108" cy="255" r="26" fill="rgba(255,107,107,0.14)" stroke="#FF6B6B" stroke-width="2"></circle>
+<path d="M100 250c1.5 5 5.5 9 10.5 10.5l3-3c.6-.6 1.5-.8 2.2-.4 1.4.7 3 1.1 4.6 1.3 1.1.1 1.9 1 1.9 2.1v4.1c0 1.2-1 2.2-2.2 2.1-13-1-23.4-11.4-24.4-24.4-.1-1.2.9-2.2 2.1-2.2h4.1c1.1 0 2 .8 2.1 1.9.2 1.6.6 3.2 1.3 4.6.4.7.2 1.6-.4 2.2z" fill="#FF6B6B" transform="translate(-6,-14) scale(1.05)"></path>
+<text x="108" y="315" text-anchor="middle" fill="#F3F4FB" font-family="sans-serif" font-size="14" font-weight="600">Missed call</text>
+<text x="108" y="336" text-anchor="middle" fill="#AEB2C9" font-family="sans-serif" font-size="12">Unknown caller</text>
+</g>
+</svg>

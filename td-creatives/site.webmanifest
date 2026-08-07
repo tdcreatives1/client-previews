@@ -1,0 +1,21 @@
+{
+  "name": "TD Creatives",
+  "short_name": "TD Creatives",
+  "description": "Professional websites, hosting, and support for local businesses.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0A0B14",
+  "theme_color": "#0A0B14",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

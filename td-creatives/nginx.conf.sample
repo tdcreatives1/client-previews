@@ -1,0 +1,51 @@
+# TD Creatives — Nginx server block (SAMPLE)
+# Merge into your existing site config; adjust root + certificate paths.
+
+server {
+    listen 80;
+    server_name tdcreativesagency.com www.tdcreativesagency.com;
+    # Force HTTPS
+    return 301 https://tdcreativesagency.com$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name www.tdcreativesagency.com;
+    # ssl_certificate     /etc/letsencrypt/live/tdcreativesagency.com/fullchain.pem;
+    # ssl_certificate_key /etc/letsencrypt/live/tdcreativesagency.com/privkey.pem;
+    # Force non-www
+    return 301 https://tdcreativesagency.com$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name tdcreativesagency.com;
+    root /var/www/td-creatives-website;   # <-- where you unpack the folder
+    index index.html;
+
+    # ssl_certificate     /etc/letsencrypt/live/tdcreativesagency.com/fullchain.pem;
+    # ssl_certificate_key /etc/letsencrypt/live/tdcreativesagency.com/privkey.pem;
+
+    # Clean URLs: /contact -> contact.html
+    location / {
+        try_files $uri $uri.html $uri/ =404;
+    }
+
+    # Custom 404
+    error_page 404 /404.html;
+
+    # Security headers
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+
+    # Compression
+    gzip on;
+    gzip_types text/css application/javascript application/json image/svg+xml text/plain text/xml;
+
+    # Long-lived caching for static assets
+    location ~* \.(css|js|jpe?g|png|svg|ico|woff2|ttf)$ {
+        expires 6M;
+        add_header Cache-Control "public";
+    }
+}
