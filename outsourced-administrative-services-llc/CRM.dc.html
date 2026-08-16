@@ -29,7 +29,10 @@
         <div onClick="{{ nv.go }}" style="padding:11px 16px;border-radius:8px;cursor:pointer;font-size:15.5px;letter-spacing:0.02em;color:{{ nv.color }};background:{{ nv.bg }};font-weight:{{ nv.weight }}" style-hover="background:rgba(195,154,62,0.22)">{{ nv.label }}</div>
       </sc-for>
     </nav>
-    <div style="margin-top:auto;padding:14px 10px 0;font-size:12.5px;line-height:1.5;color:#9AA5C0;border-top:1px solid rgba(231,234,242,0.18)">Everything saves automatically in this browser.</div>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px;padding:14px 10px 0;border-top:1px solid rgba(231,234,242,0.18)">
+      <div style="font-size:12.5px;line-height:1.5;color:#9AA5C0">Everything saves automatically in this browser.</div>
+      <button onClick="{{ logout }}" style="align-self:flex-start;border:1px solid rgba(154,165,192,0.5);background:none;color:#9AA5C0;border-radius:8px;padding:6px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit" style-hover="background:rgba(195,154,62,0.22);color:#FFFFFF">Sign out</button>
+    </div>
   </aside>
   <main style="flex:1;min-width:0;display:flex;flex-direction:column">
     <header style="display:flex;align-items:center;gap:16px;padding:20px 30px;border-bottom:2px solid #C39A3E;background:#FFFDF7">
@@ -277,6 +280,7 @@ class Component extends DCLogic {
   STAGE_BG={'New Lead':'#7A87A8','Contacted':'#4A5F94','Proposal Sent':'#C39A3E','Active Client':'#3E7A4E','Former Client':'#8A8674'};
   PIPE=['New Lead','Contacted','Proposal Sent'];
   componentDidMount(){
+    if(sessionStorage.getItem('oas-crm-auth')!=='yes'){ location.href='CRM-Login.dc.html'; return; }
     let d=null;
     try{ d=JSON.parse(localStorage.getItem('oas-crm-v1')); }catch(e){}
     if(!d||!Array.isArray(d.contacts)) d=this.seed();
@@ -404,6 +408,7 @@ class Component extends DCLogic {
     }
     return {
       navItems, viewTitle:titles[s.view],
+      logout:()=>{ sessionStorage.removeItem('oas-crm-auth'); location.href='CRM-Login.dc.html'; },
       isDash:s.view==='dashboard', isPipeline:s.view==='pipeline', isTasks:s.view==='tasks',
       isList:s.view==='clients'||s.view==='archive', showSearch:s.view==='clients'||s.view==='archive',
       listRows, noList:listRows.length===0,

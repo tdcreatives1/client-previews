@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Admin Portal | Outsourced Administrative Services, LLC</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html{color-scheme:light}
+    html,body{margin:0;padding:0;background:#14224F}
+    input{background:#FFFFFF;color:#22293B}
+    a{color:#C39A3E} a:hover{color:#D9B156}
+    input:focus{outline:2px solid #C39A3E;outline-offset:1px}
+  </style>
+</helmet>
+<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#14224F;font-family:'Source Sans 3',system-ui,sans-serif;padding:24px;box-sizing:border-box">
+  <div style="width:400px;max-width:100%">
+    <div style="text-align:center;margin-bottom:22px">
+      <div style="background:#FDFBF4;padding:14px 20px;display:inline-block;border-bottom:2px solid #C39A3E">
+        <img src="logo.png" alt="Outsourced Administrative Services LLC logo" style="height:84px;width:auto;display:block;mix-blend-mode:multiply"/>
+      </div>
+    </div>
+    <div style="background:#FFFDF7;border-radius:12px;padding:30px 32px;box-shadow:0 20px 60px rgba(0,0,0,0.35);box-sizing:border-box">
+      <h1 style="font-family:Marcellus,serif;font-size:24px;font-weight:400;color:#14224F;margin:0">Admin Portal</h1>
+      <div style="height:2px;width:44px;background:#C39A3E;margin:10px 0 18px"></div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <label style="font-size:13.5px;font-weight:600;color:#4A5068">Username
+          <input ref="{{ userRef }}" onKeyDown="{{ onKey }}" autocomplete="username" style="width:100%;box-sizing:border-box;margin-top:5px;padding:11px 13px;border:1px solid #D8D2C2;border-radius:8px;font-size:15px;font-family:inherit"/>
+        </label>
+        <label style="font-size:13.5px;font-weight:600;color:#4A5068">Password
+          <input ref="{{ passRef }}" onKeyDown="{{ onKey }}" type="password" autocomplete="current-password" style="width:100%;box-sizing:border-box;margin-top:5px;padding:11px 13px;border:1px solid #D8D2C2;border-radius:8px;font-size:15px;font-family:inherit"/>
+        </label>
+        <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+          <div style="font-size:13.5px;color:#A33B3B">Incorrect username or password. Please try again.</div>
+        </sc-if>
+        <button onClick="{{ login }}" style="background:#C39A3E;color:#14224F;border:none;border-radius:8px;padding:12px 0;font-size:15.5px;font-weight:700;cursor:pointer;letter-spacing:0.02em;margin-top:4px;font-family:inherit" style-hover="background:#D4AC52" style-active="background:#A98430">Sign in</button>
+      </div>
+      <p style="margin:18px 0 0;font-size:13px;line-height:1.55;color:#9A9480">For Outsourced Administrative Services staff only.</p>
+    </div>
+    <div style="text-align:center;margin-top:18px"><a href="Home.dc.html" style="font-size:13.5px;text-decoration:none">← Back to oas-llc.com</a></div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { error:false };
+  userRef=React.createRef(); passRef=React.createRef();
+  componentDidMount(){
+    if(sessionStorage.getItem('oas-crm-auth')==='yes') location.href='CRM.dc.html';
+  }
+  tryLogin(){
+    const u=(this.userRef.current?.value||'').trim().toLowerCase();
+    const p=this.passRef.current?.value||'';
+    if(u==='paula' && p==='OAS2026!'){
+      sessionStorage.setItem('oas-crm-auth','yes');
+      location.href='CRM.dc.html';
+    } else this.setState({error:true});
+  }
+  renderVals(){
+    return {
+      error:this.state.error,
+      userRef:this.userRef, passRef:this.passRef,
+      login:()=>this.tryLogin(),
+      onKey:(e)=>{ if(e.key==='Enter') this.tryLogin(); }
+    };
+  }
+}
+</script>
+</body>
+</html>
