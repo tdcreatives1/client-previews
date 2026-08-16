@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <title>Request a Quote | Outsourced Administrative Services, LLC | 661-747-7171</title>
-<meta name="description" content="Request a quote for outsourced administrative support. Email hello@oas-llc.com or call 661-747-7171, Monday through Friday 9AM–5PM PT. Serving Kern County, Sacramento County, California, and small businesses nationwide."/>
+<meta name="description" content="Request a quote for outsourced administrative support. Email paula@oas-llc.com or call 661-747-7171, Monday through Friday 9AM–5PM PT. Serving Kern County, Sacramento County, California, and small businesses nationwide."/>
 <meta name="keywords" content="request administrative services quote, hire executive assistant California, Kern County administrative support contact, Sacramento executive assistant contact, outsourced admin services quote"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta property="og:title" content="Request a Quote | Outsourced Administrative Services, LLC"/>
@@ -54,7 +54,7 @@ input,textarea,select,button{font:inherit}
         </sc-for>
       </div>
       </div>
-      <form onSubmit="{{ onSubmitQuote }}" action="mailto:hello@oas-llc.com?subject=Quote%20request%20from%20the%20website" method="post" encType="text/plain" style="display:grid;gap:16px;background:#FFFFFF;border:1px solid #E0D9C8;padding:clamp(24px,3vw,34px)">
+      <form onSubmit="{{ onSubmitQuote }}" action="mailto:paula@oas-llc.com?subject=Quote%20request%20from%20the%20website" method="post" encType="text/plain" style="display:grid;gap:16px;background:#FFFFFF;border:1px solid #E0D9C8;padding:clamp(24px,3vw,34px)">
       <label style="display:grid;gap:7px;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#6A6F80;font-weight:600"><span>Name <span style="color:#A9822C">*</span></span>
         <input name="name" required="required" autoComplete="name" style="border:1px solid #D8D1BF;background:#FBFAF7;padding:12px 13px;font-size:16px;color:#333849;border-radius:2px;text-transform:none;letter-spacing:normal;font-weight:400"/>
       </label>
@@ -86,7 +86,7 @@ input,textarea,select,button{font:inherit}
         <textarea name="details" rows="5" required="required" style="border:1px solid #D8D1BF;background:#FBFAF7;padding:12px 13px;font-size:16px;color:#333849;border-radius:2px;resize:vertical;text-transform:none;letter-spacing:normal;font-weight:400"></textarea>
       </label>
       <button type="submit" style="background:#14224F;color:#FDFBF4;border:none;border-bottom:2px solid #C39A3E;padding:17px 24px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;font-size:13px;cursor:pointer;border-radius:2px" style-hover="background:#0B1633">Request a Quote</button>
-      <p style="margin:0;font-size:13.5px;color:#8A8578;line-height:1.6">Sends to <a href="mailto:hello@oas-llc.com" style="font-weight:600">hello@oas-llc.com</a>. You can also email her directly.</p>
+      <p style="margin:0;font-size:13.5px;color:#8A8578;line-height:1.6">Sends to <a href="mailto:paula@oas-llc.com" style="font-weight:600">paula@oas-llc.com</a>. You can also email her directly.</p>
     </form>
 
     </div>
@@ -101,7 +101,7 @@ input,textarea,select,button{font:inherit}
           </div>
           <div>
             <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8A8578;margin-bottom:3px">Email</div>
-            <a href="mailto:hello@oas-llc.com" style="text-decoration:none;font-weight:600">hello@oas-llc.com</a>
+            <a href="mailto:paula@oas-llc.com" style="text-decoration:none;font-weight:600">paula@oas-llc.com</a>
           </div>
           <div>
             <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8A8578;margin-bottom:3px">LinkedIn</div>
@@ -140,7 +140,7 @@ class Component extends DCLogic {
         const order = ["name", "email", "phone", "business", "location", "service", "details"];
         const label = { name: "Name", email: "Email", phone: "Phone", business: "Business", location: "Location", service: "Service needed", details: "Details" };
         const body = order.map((k) => label[k] + ": " + (fd.get(k) || "")).join("\n\n");
-        window.location.href = "mailto:hello@oas-llc.com?subject=" + encodeURIComponent("Quote request from the website") + "&body=" + encodeURIComponent(body);
+        window.location.href = "mailto:paula@oas-llc.com?subject=" + encodeURIComponent("Quote request from the website") + "&body=" + encodeURIComponent(body);
       },
       onServiceChange: (e) => this.setState({ service: e.target.value }),
       steps: [
