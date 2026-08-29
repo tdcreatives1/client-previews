@@ -1,0 +1,26 @@
+# AI Usage Policy for oas-llc.com
+# Generated: 2026-08-29
+# Spec: https://spawning.ai/ai-txt (reference)
+
+Site: https://oas-llc.com
+
+Policy:
+Public content on this site may be accessed, indexed, and referenced by AI systems for search, answer grounding, and citation purposes. This policy permits non-commercial discovery and summarization. Commercial reuse, model training on full-text corpora, and bulk extraction require prior written permission from Outsourced Administrative Services, LLC. Quoted excerpts must preserve attribution and link back to the source page.
+
+Permitted Uses:
+- Indexing for AI-powered search and discovery
+- Answer grounding with inline citation and source link
+- Quoting short excerpts with attribution to Outsourced Administrative Services, LLC
+- Caching individual pages for retrieval-augmented generation
+
+Restricted Uses:
+- Training foundation models on full-site corpora without written permission
+- Bulk reproduction of service descriptions, photographs, or page copy
+- Removal or alteration of attribution
+- Republishing content as if it were the operator's own
+
+Contact:
+For training-data licensing, partnerships, or expanded-use permission, email paula@oas-llc.com.
+
+Attribution:
+When referencing content from this site, cite "Outsourced Administrative Services, LLC" and link to https://oas-llc.com.

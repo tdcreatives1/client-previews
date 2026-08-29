@@ -54,7 +54,7 @@ input,textarea,select,button{font:inherit}
         </sc-for>
       </div>
       </div>
-      <form onSubmit="{{ onSubmitQuote }}" action="mailto:paula@oas-llc.com?subject=Quote%20request%20from%20the%20website" method="post" encType="text/plain" style="display:grid;gap:16px;background:#FFFFFF;border:1px solid #E0D9C8;padding:clamp(24px,3vw,34px)">
+      <form onSubmit="{{ onSubmitQuote }}" action="mailto:paula@oas-llc.com?cc=pdaoutis@outlook.com&subject=Quote%20request%20from%20the%20website" method="post" encType="text/plain" style="display:grid;gap:16px;background:#FFFFFF;border:1px solid #E0D9C8;padding:clamp(24px,3vw,34px)">
       <label style="display:grid;gap:7px;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:#6A6F80;font-weight:600"><span>Name <span style="color:#A9822C">*</span></span>
         <input name="name" required="required" autoComplete="name" style="border:1px solid #D8D1BF;background:#FBFAF7;padding:12px 13px;font-size:16px;color:#333849;border-radius:2px;text-transform:none;letter-spacing:normal;font-weight:400"/>
       </label>
@@ -86,7 +86,7 @@ input,textarea,select,button{font:inherit}
         <textarea name="details" rows="5" required="required" style="border:1px solid #D8D1BF;background:#FBFAF7;padding:12px 13px;font-size:16px;color:#333849;border-radius:2px;resize:vertical;text-transform:none;letter-spacing:normal;font-weight:400"></textarea>
       </label>
       <button type="submit" style="background:#14224F;color:#FDFBF4;border:none;border-bottom:2px solid #C39A3E;padding:17px 24px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;font-size:13px;cursor:pointer;border-radius:2px" style-hover="background:#0B1633">Request a Quote</button>
-      <p style="margin:0;font-size:13.5px;color:#8A8578;line-height:1.6">Sends to <a href="mailto:paula@oas-llc.com" style="font-weight:600">paula@oas-llc.com</a>. You can also email her directly.</p>
+      <p style="margin:0;font-size:13.5px;color:#8A8578;line-height:1.6">Sends to <a href="mailto:paula@oas-llc.com?cc=pdaoutis@outlook.com" style="font-weight:600">paula@oas-llc.com</a>. You can also email her directly.</p>
     </form>
 
     </div>
@@ -101,7 +101,7 @@ input,textarea,select,button{font:inherit}
           </div>
           <div>
             <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8A8578;margin-bottom:3px">Email</div>
-            <a href="mailto:paula@oas-llc.com" style="text-decoration:none;font-weight:600">paula@oas-llc.com</a>
+            <a href="mailto:paula@oas-llc.com?cc=pdaoutis@outlook.com" style="text-decoration:none;font-weight:600">paula@oas-llc.com</a>
           </div>
           <div>
             <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8A8578;margin-bottom:3px">LinkedIn</div>
@@ -120,13 +120,14 @@ input,textarea,select,button{font:inherit}
           <a href="Kern-County.dc.html" style="text-decoration:none">Kern County, CA →</a>
           <a href="Sacramento-County.dc.html" style="text-decoration:none">Sacramento County, CA →</a>
         </div>
-        <p style="margin:16px 0 0;font-size:15.5px;line-height:1.7;color:#4A4F60">Travel available for onsite engagements.</p>
+        <p style="margin:16px 0 0;font-size:15.5px;line-height:1.7;color:#4A4F60">Travel available for onsite engagements. <span style="color:#8A8578">*Sacramento County only</span></p>
       </div>
     </div>
   </section>
 </main>
 
 <dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+<dc-import name="ChatWidget" hint-size="60px,60px"></dc-import>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{}">
 class Component extends DCLogic {
@@ -140,7 +141,12 @@ class Component extends DCLogic {
         const order = ["name", "email", "phone", "business", "location", "service", "details"];
         const label = { name: "Name", email: "Email", phone: "Phone", business: "Business", location: "Location", service: "Service needed", details: "Details" };
         const body = order.map((k) => label[k] + ": " + (fd.get(k) || "")).join("\n\n");
-        window.location.href = "mailto:paula@oas-llc.com?subject=" + encodeURIComponent("Quote request from the website") + "&body=" + encodeURIComponent(body);
+        ["paula@oas-llc.com", "pdaoutis@outlook.com"].forEach((addr) => {
+          fetch("https://formsubmit.co/ajax/" + addr, { method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify({ _subject: "Quote request from the website — " + (fd.get("name") || ""), details: body, _template: "box" }) }).catch(() => {});
+        });
+        window.location.href = "mailto:paula@oas-llc.com?cc=" + encodeURIComponent("pdaoutis@outlook.com") + "&subject=" + encodeURIComponent("Quote request from the website") + "&body=" + encodeURIComponent(body);
       },
       onServiceChange: (e) => this.setState({ service: e.target.value }),
       steps: [
@@ -151,12 +157,9 @@ class Component extends DCLogic {
       options: [
         "Executive / C-suite administrative support",
         "Board or executive director support",
-        "Account reconciliation or bookkeeping cleanup",
         "Special or short-term project",
-        "Calendar, travel & meeting management",
         "Documents, policies & procedures",
         "Vendor & contract administration",
-        "Event or conference coordination",
         "Not sure yet"
       ]
     };
