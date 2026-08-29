@@ -171,24 +171,6 @@ input,textarea,select,button{font:inherit}
     </div>
   </section>
 
-  <sc-if value="{{ showPricing }}" hint-placeholder-val="{{ true }}">
-    <section style="max-width:1180px;margin:0 auto;padding:clamp(56px,7vw,96px) 22px">
-      <div style="font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#A9822C;font-weight:600;margin-bottom:14px">Rates</div>
-      <h2 style="margin:0 0 10px;font-size:clamp(26px,2.8vw,38px)">Straightforward hourly pricing</h2>
-      <p style="margin:0 0 40px;font-size:17px;color:#5B6072;max-width:62ch">Billed to the quarter hour with an itemized summary. Project quotes available for defined scopes.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px">
-        <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="3">
-          <article style="border:1px solid #E7E1D4;background:#FFFFFF;padding:30px 26px;display:flex;flex-direction:column;gap:10px">
-            <h3 style="margin:0;font-size:20px">{{ t.name }}</h3>
-            <div style="font-family:Marcellus,serif;font-size:30px;color:#14224F">{{ t.rate }}</div>
-            <p style="margin:0;font-size:15.5px;line-height:1.7;color:#5B6072">{{ t.body }}</p>
-          </article>
-        </sc-for>
-      </div>
-      <p style="margin:26px 0 0;font-size:14px;color:#8A8578;font-family:ui-monospace,Menlo,monospace">Rate figures are placeholders — send your real ranges and I will drop them in.</p>
-    </section>
-  </sc-if>
-
   <section id="quote" style="background:#F4F0E4;border-top:1px solid #E7E1D4">
     <div style="max-width:1180px;margin:0 auto;padding:clamp(52px,6vw,88px) 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,60px);align-items:start">
       <div style="position:sticky;top:96px">
