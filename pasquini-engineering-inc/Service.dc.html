@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',Helvetica,Arial,sans-serif;color:#3d4852;background:#ffffff}a{color:#2172b8;text-decoration:none}a:hover{color:#16324f}@keyframes peFlyUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}</style>
+</helmet>
+<div style="font-family:'Open Sans',Helvetica,Arial,sans-serif">
+  <dc-import name="Header" hint-size="100%,120px"></dc-import>
+
+  <div style="background:#f4f7fa;padding:12px 40px;font-size:13px"><a href="Home.dc.html">Home</a> <span style="color:#8a97a5">/</span> <a href="Our Services.dc.html">Our Services</a> <span style="color:#8a97a5">/</span> <span style="color:#16324f;font-weight:600">{{ name }}</span></div>
+
+  <section data-screen-label="Service Hero" style="background:#16324f;color:#ffffff;text-align:center;padding:72px 24px">
+    <div style="animation:peFlyUp .7s cubic-bezier(.22,1,.36,1) 0s backwards;font-family:Montserrat,sans-serif;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#ffd9a8;font-weight:700;margin-bottom:12px">Our Services</div>
+    <h1 style="animation:peFlyUp .8s cubic-bezier(.22,1,.36,1) .15s backwards;font-family:Montserrat,sans-serif;font-size:44px;font-weight:800;margin:0 0 16px;line-height:1.2;text-wrap:balance">{{ name }} In California</h1>
+    <p style="animation:peFlyUp .8s cubic-bezier(.22,1,.36,1) .3s backwards;max-width:680px;margin:0 auto 28px;font-size:17px;line-height:1.7;opacity:0.9">{{ tagline }}</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="Contact Us.dc.html" style="background:#ffc20e;color:#1a1a1a;padding:13px 28px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#e8ae00;color:#1a1a1a">Get Started Today</a>
+      <a href="tel:6613289600" style="background:transparent;border:2px solid #ffffff;color:#ffffff;padding:11px 26px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#ffffff;color:#16324f">(661) 328-9600</a>
+    </div>
+  </section>
+
+  <section style="padding:72px 24px;max-width:1140px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:1.15fr 1fr;gap:52px;align-items:center">
+      <div>
+        <h2 style="font-family:Montserrat,sans-serif;font-size:30px;font-weight:800;color:#16324f;margin:0 0 18px">{{ heading }}</h2>
+        <p style="line-height:1.8;margin:0 0 14px">{{ intro1 }}</p>
+        <p style="line-height:1.8;margin:0">{{ intro2 }}</p>
+      </div>
+      <img src="{{ image }}" alt="{{ name }}" style="width:100%;border-radius:8px;object-fit:cover;max-height:420px">
+    </div>
+  </section>
+
+  <section style="background:#f4f7fa;padding:72px 24px">
+    <div style="max-width:1140px;margin:0 auto">
+      <h2 style="font-family:Montserrat,sans-serif;font-size:30px;font-weight:800;color:#16324f;margin:0 0 36px;text-align:center">What's Included</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px">
+        <sc-for list="{{ points }}" as="p" hint-placeholder-count="3">
+          <div style="background:#ffffff;border-radius:8px;padding:28px">
+            <h3 style="font-family:Montserrat,sans-serif;font-size:18px;color:#16324f;margin:0 0 10px">{{ p.h }}</h3>
+            <p style="margin:0;line-height:1.7;font-size:14.5px">{{ p.t }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:72px 24px;max-width:860px;margin:0 auto;text-align:center">
+    <h2 style="font-family:Montserrat,sans-serif;font-size:30px;font-weight:800;color:#16324f;margin:0 0 14px">One Stop Shop, Under One Roof</h2>
+    <p style="line-height:1.8;margin:0 0 26px">No need to look multiple places for the various professionals you will need to design and engineer the plans for your project. With our decades of practical experience, we have the insight and understanding of how to create your design while value engineering the construction cost.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+      <sc-for list="{{ others }}" as="o" hint-placeholder-count="5">
+        <a href="{{ o.href }}" style="background:#f4f7fa;border-radius:16px;padding:7px 15px;font-size:13px;font-weight:600;color:#16324f" style-hover="background:#e8eff5;color:#2172b8">{{ o.label }}</a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:#2172b8;color:#ffffff;text-align:center;padding:66px 24px">
+    <h2 style="font-family:Montserrat,sans-serif;font-size:30px;font-weight:800;margin:0 0 12px">Schedule An Appointment</h2>
+    <p style="max-width:580px;margin:0 auto 26px;line-height:1.7;opacity:0.9">One-stop engineering plans for permits — affordable, quick, and stress-free.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="tel:6613289600" style="background:#ffc20e;color:#1a1a1a;padding:13px 28px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#e8ae00;color:#1a1a1a">(661) 328-9600</a>
+      <a href="sms:6613289600" style="background:transparent;border:2px solid #ffffff;color:#ffffff;padding:11px 26px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#ffffff;color:#16324f">Text Us</a>
+      <a href="Contact Us.dc.html" style="background:#16324f;color:#ffffff;padding:13px 28px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#0d1f32;color:#ffffff">Contact Us</a>
+    </div>
+    <div style="margin-top:16px;font-size:13.5px;opacity:0.85">If we miss your call, we'll text you back within minutes.</div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,420px"></dc-import>
+  <dc-import name="ChatWidget" hint-size="0px,0px"></dc-import>
+  <dc-import name="StickyBar" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  data = {
+    "civil-engineering": { name: "Civil Engineering", image: "https://pasquiniengineering.com/wp-content/uploads/2022/05/california-civil-engineering-pasquini-engineering-1.jpg",
+      tagline: "By undertaking complex calculations, we carefully create, improve, and protect the immediate environment of your project while complying with local building code and standards.",
+      heading: "Civil Engineering Solutions For Every Site",
+      intro1: "From grading and drainage to site layout and stormwater management, our civil engineers design the infrastructure your project sits on — engineered to your local jurisdiction's codes and standards.",
+      intro2: "With 30+ years and 9,000+ completed projects across California and beyond, we know how to move site plans through plan check without costly delays and resubmittals.",
+      points: [
+        { h: "Grading & Drainage Design", t: "Site grading plans, drainage control, and erosion management for any terrain." },
+        { h: "Stormwater & SWPPP", t: "QSP/QSD services and stormwater pollution prevention plans that keep you compliant." },
+        { h: "Site Development", t: "Complete civil plan sets for residential lots, subdivisions, and commercial sites." }
+      ]},
+    "structural-engineering": { name: "Structural Engineering", image: "https://pasquiniengineering.com/wp-content/uploads/2020/08/structural-engineering.jpg",
+      tagline: "We make sure your project complies with legal safety and health requirements — including withstanding the elements, the structural integrity of existing buildings, and alterations to existing properties.",
+      heading: "Structures Engineered To Stand Up And Pass Inspection",
+      intro1: "Our structural engineers design and evaluate the systems that hold your building up: foundations, framing, lateral systems, retaining walls, and everything between — with complete calculations ready for plan check.",
+      intro2: "Whether it's a new build, an addition, a load-bearing wall removal, or a fire rebuild, we deliver accurate, code-compliant structural plans that builders can price and inspectors can approve.",
+      points: [
+        { h: "Structural Plans & Calcs", t: "Permit-ready structural drawings with full calculations for any scope." },
+        { h: "Seismic & Retrofit", t: "Lateral design, seismic evaluations, and retrofits for California conditions." },
+        { h: "Assessments & Reports", t: "Structural integrity evaluations for existing, damaged, or fire-affected buildings." }
+      ]},
+    "building-design": { name: "Building Design", image: "https://pasquiniengineering.com/wp-content/uploads/2022/05/california-building-design-firm-pasquini-engineering.jpg",
+      tagline: "As we liaise with clients and work hand-in-hand with architects and subcontractors, we carefully execute a building design for you while managing budgets and project resources that best suit you.",
+      heading: "From Initial Layout To Permit-Ready Plans",
+      intro1: "We meet directly with you to design layouts that fulfill your vision — homes, additions, ADUs, and commercial buildings — then carry that design through to complete, permit-ready construction documents.",
+      intro2: "Because design and engineering happen under one roof, your project avoids the coordination delays and costs of juggling multiple design professionals.",
+      points: [
+        { h: "Residential Design", t: "Custom homes, additions, remodels, and ADUs designed around how you live." },
+        { h: "Commercial Design", t: "Building design for offices, retail, and tenant improvements." },
+        { h: "Title 24 Compliance", t: "Energy compliance documentation included with your plan set." }
+      ]},
+    "construction-project-management": { name: "Construction Project Management", image: "https://pasquiniengineering.com/wp-content/uploads/2020/09/construction-project-management-img.jpg",
+      tagline: "With our professional construction management techniques, we practice a hands-on approach with a constant line of communication with your building contractor.",
+      heading: "Hands-On Management From Groundbreaking To Final",
+      intro1: "We keep a constant line of communication with your building contractor and visit your project's construction site regularly to make sure it's done quickly and correctly.",
+      intro2: "Our engineers know what inspectors look for — so problems get caught early, schedules hold, and your project reaches final sign-off without surprises.",
+      points: [
+        { h: "Site Visits & Oversight", t: "Regular construction-site visits to verify work matches the approved plans." },
+        { h: "Contractor Coordination", t: "A single point of contact between you, your builder, and the engineers." },
+        { h: "Inspection Support", t: "Responses to inspector questions and field changes, handled fast." }
+      ]},
+    "planning-services": { name: "Planning Services", image: "https://pasquiniengineering.com/wp-content/uploads/2020/08/planning-services.jpg",
+      tagline: "Our solutions-based approach focuses on carefully designing plans that meet your local planning department's requirements and coincide with your preferred building project.",
+      heading: "Zoning And Planning, Solved Before They're Problems",
+      intro1: "Setbacks, lot coverage, use permits, variances — planning department requirements can stall a project before it starts. Our planning and zoning specialists design around them from day one.",
+      intro2: "We handle entitlement research and planning submittals so your project arrives at the building department ready to move.",
+      points: [
+        { h: "Zoning Analysis", t: "Up-front research on what your lot allows before you invest in design." },
+        { h: "Entitlements & Permits", t: "Use permits, variances, and planning submittals prepared and managed." },
+        { h: "Land Development", t: "Lot splits, subdivisions, and development planning support." }
+      ]},
+    "surveying": { name: "Surveying", image: "https://pasquiniengineering.com/wp-content/uploads/2020/12/surveying-engineer-pasquini-engineering-bakersfield.jpg",
+      tagline: "We carefully survey your project by examining its design and addressing any practicalities of the structure, so you can trust your project is built the correct and safe way.",
+      heading: "Accurate Surveys, Reliable Foundations",
+      intro1: "Good plans start with knowing exactly what's on the ground. Our surveying services establish the boundaries, topography, and control your design and construction depend on.",
+      intro2: "Because surveying lives under the same roof as design and engineering, field data flows straight into your plan set — no handoffs, no translation errors.",
+      points: [
+        { h: "Topographic Surveys", t: "Site topography and features mapped for accurate design." },
+        { h: "Boundary Surveys", t: "Property lines established and documented for permits and construction." },
+        { h: "Construction Staking", t: "Precise stakeout so what's built matches what's designed." }
+      ]}
+  };
+  componentDidMount() {
+    this.onHash = () => this.forceUpdate();
+    window.addEventListener("hashchange", this.onHash);
+  }
+  componentWillUnmount() { window.removeEventListener("hashchange", this.onHash); }
+  renderVals() {
+    const key = (location.hash || "#civil-engineering").slice(1).toLowerCase();
+    const s = this.data[key] || this.data["civil-engineering"];
+    const others = Object.keys(this.data).filter(k => this.data[k] !== s)
+      .map(k => ({ label: this.data[k].name, href: "#" + k }));
+    return { ...s, points: s.points.map(p => ({ h: p.h, t: p.t })), others };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',Helvetica,Arial,sans-serif;color:#3d4852;background:#ffffff}a{color:#2172b8;text-decoration:none}a:hover{color:#16324f}@keyframes peFlyUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}@keyframes peFadeIn{from{opacity:0}to{opacity:1}}</style>
+</helmet>
+<div style="font-family:'Open Sans',Helvetica,Arial,sans-serif">
+  <dc-import name="Header" hint-size="100%,120px"></dc-import>
+
+  <div style="background:#f4f7fa;padding:12px 40px;font-size:13px"><a href="Home.dc.html">Home</a> <span style="color:#8a97a5">/</span> <a href="Service Areas.dc.html">Service Areas</a> <span style="color:#8a97a5">/</span> <span style="color:#16324f;font-weight:600">{{ name }}</span></div>
+
+  <section data-screen-label="State Hero" style="background:linear-gradient(rgba(13,31,50,0.82),rgba(13,31,50,0.82)),url('https://pasquiniengineering.com/wp-content/uploads/2022/10/commercial-project-california-pasquini-engineering-1-1.jpg') center/cover;color:#ffffff;padding:88px 24px;text-align:center">
+    <div style="animation:peFlyUp .7s cubic-bezier(.22,1,.36,1) 0s backwards;font-family:Montserrat,sans-serif;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#ffd9a8;font-weight:700;margin-bottom:12px">Beyond California</div>
+    <h1 style="animation:peFlyUp .8s cubic-bezier(.22,1,.36,1) .15s backwards;font-family:Montserrat,sans-serif;font-size:44px;font-weight:800;margin:0 0 16px;line-height:1.2">Engineering Services In {{ name }}</h1>
+    <p style="animation:peFlyUp .8s cubic-bezier(.22,1,.36,1) .3s backwards;max-width:680px;margin:0 auto 28px;font-size:17px;line-height:1.7;opacity:0.9">{{ tagline }}</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="Contact Us.dc.html" style="background:#ffc20e;color:#1a1a1a;padding:13px 28px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#e8ae00;color:#1a1a1a">Get Started Today</a>
+      <a href="tel:8885099252" style="background:transparent;border:2px solid #ffffff;color:#ffffff;padding:11px 26px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#ffffff;color:#16324f">(888) 509-9252</a>
+    </div>
+    <div style="margin-top:14px;font-size:13px;opacity:0.8">If we miss your call, we'll text you back within minutes.</div>
+  </section>
+
+  <section style="padding:72px 24px;max-width:1140px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:52px;align-items:center">
+      <div>
+        <h2 style="font-family:Montserrat,sans-serif;font-size:30px;font-weight:800;color:#16324f;margin:0 0 18px">Full-Service Engineering, Wherever Your Project Is</h2>
+        <p style="line-height:1.8;margin:0 0 14px">{{ intro }}</p>
+        <p style="line-height:1.8;margin:0">No matter where you are Pasquini Engineering has you covered with completed jobs in California, Oregon, Washington, Nevada, Arizona, Hawaii, Alaska, and Texas. Plans are prepared in-house by our California team and coordinated with your local jurisdiction, builder, and plan checkers.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <img src="https://pasquiniengineering.com/wp-content/uploads/2024/01/pasquini-map.png" alt="Map of states served by Pasquini Engineering" style="width:100%;border-radius:8px">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+          <sc-for list="{{ others }}" as="o" hint-placeholder-count="6">
+            <a href="{{ o.href }}" style="background:#f4f7fa;border-radius:16px;padding:6px 14px;font-size:13px;font-weight:600;color:#16324f" style-hover="background:#e8eff5;color:#2172b8">{{ o.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f4f7fa;padding:72px 24px">
+    <div style="max-width:1140px;margin:0 auto">
+      <h2 style="font-family:Montserrat,sans-serif;font-size:30px;font-weight:800;color:#16324f;margin:0 0 36px;text-align:center">What We Do In {{ name }}</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px">
+        <sc-for list="{{ points }}" as="p" hint-placeholder-count="3">
+          <div style="background:#ffffff;border-radius:8px;padding:28px">
+            <h3 style="font-family:Montserrat,sans-serif;font-size:18px;color:#16324f;margin:0 0 10px">{{ p.h }}</h3>
+            <p style="margin:0;line-height:1.7;font-size:14.5px">{{ p.t }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:72px 24px;max-width:860px;margin:0 auto;text-align:center">
+    <h2 style="font-family:Montserrat,sans-serif;font-size:30px;font-weight:800;color:#16324f;margin:0 0 14px">Why Clients In {{ name }} Work With Us</h2>
+    <p style="line-height:1.8;margin:0 0 10px">Since 1990, Pasquini Engineering, Inc. has successfully designed and engineered thousands of residential projects for homeowners and commercial developments for general contractors, business owners, and investors.</p>
+    <p style="line-height:1.8;margin:0">Our expert team brings decades of experience in structural engineering, building design, drafting, construction management, land development, and surveying — a true one-stop shop that gets project plans completed in-house without time-consuming coordination and costly delays.</p>
+  </section>
+
+  <section style="background:#16324f;color:#ffffff;text-align:center;padding:66px 24px">
+    <h2 style="font-family:Montserrat,sans-serif;font-size:30px;font-weight:800;margin:0 0 12px">Start Your {{ name }} Project Today</h2>
+    <p style="max-width:580px;margin:0 auto 26px;line-height:1.7;opacity:0.9">One-stop engineering plans for permits — affordable, quick, and stress-free.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="tel:8885099252" style="background:#ffc20e;color:#1a1a1a;padding:13px 28px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#e8ae00;color:#1a1a1a">(888) 509-9252</a>
+      <a href="sms:8885099252" style="background:transparent;border:2px solid #ffffff;color:#ffffff;padding:11px 26px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#ffffff;color:#16324f">Text Us</a>
+      <a href="Contact Us.dc.html" style="background:#2172b8;color:#ffffff;padding:13px 28px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#1a5c94;color:#ffffff">Schedule An Appointment</a>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,420px"></dc-import>
+  <dc-import name="ChatWidget" hint-size="0px,0px"></dc-import>
+  <dc-import name="StickyBar" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  data = {
+    oregon: { name: "Oregon", tagline: "From Portland infill to coastal and high-desert builds, we deliver permit-ready structural, civil, and architectural plans for Oregon projects.", intro: "Oregon projects face seismic design requirements, wet-weather drainage, and jurisdiction-by-jurisdiction plan review. Our team prepares complete plan sets engineered to Oregon's adopted codes and your local amendments.", points: [
+      { h: "Residential & ADU Plans", t: "New homes, additions, remodels, and ADUs with complete structural calculations." },
+      { h: "Seismic & Lateral Design", t: "Lateral systems engineered for Pacific Northwest seismic and wind loads." },
+      { h: "Site & Drainage Design", t: "Grading and stormwater design suited to Oregon's wet-weather requirements." }
+    ]},
+    washington: { name: "Washington", tagline: "Structural and civil engineering for Washington homes, commercial buildings, and land development — designed remotely, permitted locally.", intro: "From Puget Sound to Eastern Washington, we engineer plans to Washington's adopted building codes, including seismic and snow-load requirements, and coordinate with your city or county plan review.", points: [
+      { h: "Structural Plan Sets", t: "Permit-ready structural plans and calculations for residential and commercial work." },
+      { h: "Snow & Seismic Loads", t: "Designs accounting for regional snow loads and seismic zones across the state." },
+      { h: "Land Development", t: "Civil design, grading, and drainage for lots, subdivisions, and site work." }
+    ]},
+    nevada: { name: "Nevada", tagline: "Engineering plans for Nevada's fast-growing residential and commercial markets, from Las Vegas to Reno.", intro: "Nevada's growth means busy plan-check counters. We deliver accurate, code-compliant plan sets the first time, engineered for desert conditions — expansive soils, wind, and thermal design.", points: [
+      { h: "Residential & Commercial", t: "Complete design and engineering for new builds, tenant improvements, and additions." },
+      { h: "Foundation Design", t: "Foundations engineered for desert soil conditions and local requirements." },
+      { h: "Fast, Accurate Plan Sets", t: "Plans built to move through Clark County, Washoe County, and city review cleanly." }
+    ]},
+    arizona: { name: "Arizona", tagline: "From Phoenix metro to rural parcels, we prepare permit-ready engineering plans built for Arizona's codes and climate.", intro: "Arizona projects call for thermal design, monsoon drainage, and soils-aware foundations. Our in-house team handles the full plan set and coordinates with your county or municipal plan review.", points: [
+      { h: "Custom Homes & Additions", t: "Building design and structural engineering for residential projects of every scope." },
+      { h: "Monsoon Drainage", t: "Grading and drainage design for monsoon stormwater and desert washes." },
+      { h: "Commercial Projects", t: "Engineering for commercial developments, from shell buildings to improvements." }
+    ]},
+    hawaii: { name: "Hawaii", tagline: "Island projects, mainland-caliber engineering — hurricane, seismic, and corrosion-conscious design for Hawaii builds.", intro: "Building in Hawaii means designing for hurricane wind loads, seismic activity, and a marine environment. We prepare complete plan sets engineered for island conditions and county plan review.", points: [
+      { h: "Hurricane Wind Design", t: "Structures engineered for high wind and uplift requirements." },
+      { h: "Residential & Ohana Units", t: "New homes, additions, and accessory dwellings designed for island living." },
+      { h: "County Plan Review", t: "Plans coordinated with Hawaii's county permitting processes." }
+    ]},
+    alaska: { name: "Alaska", tagline: "Engineering for the Last Frontier — snow, seismic, and cold-climate design for Alaska homes and structures.", intro: "Alaska projects demand heavy snow-load design, serious seismic engineering, and cold-climate detailing. Our team prepares complete, permit-ready plans engineered for those realities.", points: [
+      { h: "Snow & Seismic Design", t: "Structural systems engineered for extreme snow loads and seismic zones." },
+      { h: "Cold-Climate Detailing", t: "Foundations and envelopes designed for frost depth and freeze-thaw conditions." },
+      { h: "Remote-Site Projects", t: "Plans prepared remotely and coordinated with local jurisdictions and builders." }
+    ]},
+    texas: { name: "Texas", tagline: "Big-state engineering support — residential and commercial plan sets for Texas projects, from metro infill to rural builds.", intro: "From expansive clay soils to hurricane wind zones on the coast, Texas projects have their own engineering demands. We deliver complete, code-compliant plan sets coordinated with your city or county.", points: [
+      { h: "Expansive Soil Foundations", t: "Slab and pier-and-beam foundations engineered for Texas clay soils." },
+      { h: "Wind Zone Design", t: "Coastal and inland wind design to Texas adopted codes." },
+      { h: "Residential & Commercial", t: "Full design and engineering for homes, additions, and commercial developments." }
+    ]}
+  };
+  componentDidMount() {
+    this.onHash = () => this.forceUpdate();
+    window.addEventListener("hashchange", this.onHash);
+  }
+  componentWillUnmount() { window.removeEventListener("hashchange", this.onHash); }
+  renderVals() {
+    const key = (location.hash || "#oregon").slice(1).toLowerCase();
+    const s = this.data[key] || this.data.oregon;
+    const others = Object.keys(this.data).filter(k => this.data[k] !== s)
+      .map(k => ({ label: this.data[k].name, href: "#" + k }));
+    return { name: s.name, tagline: s.tagline, intro: s.intro, points: s.points.map(p => ({ h: p.h, t: p.t })), others };
+  }
+}
+</script>
+</body>
+</html>

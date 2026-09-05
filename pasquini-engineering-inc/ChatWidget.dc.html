@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',Helvetica,Arial,sans-serif}a{color:#2172b8;text-decoration:none}a:hover{color:#16324f}</style>
+</helmet>
+<!-- Mock of the GoHighLevel chat widget. In production, replace this DC with the GHL embed script (widgets.leadconnectorhq.com) placed before </body>. -->
+<div style="position:fixed;bottom:24px;right:24px;z-index:9999;font-family:'Open Sans',Helvetica,Arial,sans-serif;display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+  <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+    <div style="width:340px;height:460px;background:#ffffff;border-radius:12px;box-shadow:0 12px 40px rgba(22,50,79,0.3);display:flex;flex-direction:column;overflow:hidden">
+      <div style="background:#16324f;color:#ffffff;padding:14px 16px;display:flex;align-items:center;gap:10px">
+        <div style="width:38px;height:38px;border-radius:50%;background:#ffffff;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden"><img src="https://pasquiniengineering.com/wp-content/uploads/2020/08/pe-nav-logo@2x.png" alt="" style="width:28px;height:28px;object-fit:contain"></div>
+        <div style="flex:1">
+          <div style="font-weight:700;font-size:14px">Pasquini Engineering</div>
+          <div style="font-size:11.5px;opacity:0.8">Typically replies in a few minutes</div>
+        </div>
+        <button onClick="{{ toggle }}" style="background:none;border:none;color:#ffffff;font-size:18px;cursor:pointer;line-height:1">×</button>
+      </div>
+      <div style="flex:1;padding:14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;background:#f4f7fa">
+        <sc-for list="{{ msgs }}" as="m" hint-placeholder-count="1">
+          <div style="{{ m.style }}">{{ m.text }}</div>
+        </sc-for>
+        <sc-if value="{{ showQuick }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:6px;margin-top:2px">
+            <sc-for list="{{ quick }}" as="q" hint-placeholder-count="3">
+              <button onClick="{{ q.pick }}" style="background:#ffffff;border:1px solid #2172b8;color:#2172b8;border-radius:16px;padding:7px 12px;font-size:12.5px;font-weight:600;cursor:pointer;text-align:left;font-family:inherit" style-hover="background:#eaf3fa">{{ q.label }}</button>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+      <div style="display:flex;gap:8px;padding:10px;border-top:1px solid #e2e8ef;background:#ffffff">
+        <input value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" placeholder="Type your message…" style="flex:1;border:1px solid #cfd8e2;border-radius:6px;padding:9px 10px;font-size:13px;font-family:inherit;outline-color:#2172b8">
+        <button onClick="{{ send }}" style="background:#ffc20e;color:#1a1a1a;border:none;border-radius:6px;padding:0 16px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit" style-hover="background:#e8ae00">Send</button>
+      </div>
+      <div style="text-align:center;font-size:10px;color:#9aa7b4;padding:5px 0 7px;background:#ffffff">Powered by our messaging platform · SMS rates may apply</div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ showPill }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#ffffff;border-radius:20px;box-shadow:0 4px 16px rgba(22,50,79,0.22);padding:9px 14px;font-size:12.5px;color:#16324f;font-weight:600;max-width:250px">
+      Can't call right now? Chat with us — or if we miss your call, we'll text you back.
+    </div>
+  </sc-if>
+  <button onClick="{{ toggle }}" style="width:58px;height:58px;border-radius:50%;background:#ffc20e;border:none;cursor:pointer;box-shadow:0 6px 20px rgba(22,50,79,0.35);color:#1a1a1a;font-size:24px;display:flex;align-items:center;justify-content:center" style-hover="background:#e8ae00">{{ icon }}</button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;420px&quot;,&quot;height&quot;:&quot;560px&quot;}}">
+class Component extends DCLogic {
+  state = { open: false, dismissed: false, input: "", showQuick: true, msgs: [
+    { who: "them", text: "Hi! Thanks for visiting Pasquini Engineering. How can we help with your project?" }
+  ]};
+  bot(text) {
+    setTimeout(() => this.setState(s => ({ msgs: [...s.msgs, { who: "them", text }] })), 700);
+  }
+  pick(label) {
+    this.setState(s => ({ showQuick: false, msgs: [...s.msgs, { who: "me", text: label }] }));
+    this.bot("Great — leave your name and best phone number below and our team will text you back within minutes.");
+  }
+  renderVals() {
+    const themStyle = "background:#ffffff;border:1px solid #e2e8ef;color:#3d4852;align-self:flex-start;";
+    const meStyle = "background:#2172b8;color:#ffffff;align-self:flex-end;";
+    const base = "border-radius:10px;padding:9px 12px;font-size:13px;line-height:1.5;max-width:82%";
+    return {
+      open: this.state.open,
+      showPill: !this.state.open && !this.state.dismissed,
+      icon: this.state.open ? "–" : "✆",
+      showQuick: this.state.showQuick,
+      input: this.state.input,
+      msgs: this.state.msgs.map(m => ({ text: m.text, style: (m.who === "me" ? meStyle : themStyle) + base })),
+      quick: [
+        "Start a new project",
+        "Fire rebuild help (Altadena / Palisades)",
+        "Request a callback / text back"
+      ].map(label => ({ label, pick: () => this.pick(label) })),
+      toggle: () => this.setState(s => ({ open: !s.open, dismissed: true })),
+      onInput: e => this.setState({ input: e.target.value }),
+      onKey: e => { if (e.key === "Enter") this.renderVals().send(); },
+      send: () => {
+        const t = this.state.input.trim();
+        if (!t) return;
+        this.setState(s => ({ input: "", showQuick: false, msgs: [...s.msgs, { who: "me", text: t }] }));
+        this.bot("Thanks! A member of our team will follow up by text shortly. For anything urgent, call (888) 509-9252.");
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

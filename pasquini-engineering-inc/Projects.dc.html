@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',Helvetica,Arial,sans-serif;color:#3d4852;background:#ffffff}a{color:#2172b8;text-decoration:none}a:hover{color:#16324f}@keyframes peFlyUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}@keyframes peFadeIn{from{opacity:0}to{opacity:1}}</style>
+</helmet>
+<div style="font-family:'Open Sans',Helvetica,Arial,sans-serif">
+  <dc-import name="Header" hint-size="100%,120px"></dc-import>
+
+  <section data-screen-label="Projects Hero" style="background:#16324f;color:#ffffff;text-align:center;padding:66px 24px">
+    <div style="font-family:Montserrat,sans-serif;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#ffd9a8;font-weight:700;margin-bottom:12px">Projects</div>
+    <h1 style="animation:peFlyUp .8s cubic-bezier(.22,1,.36,1) .15s backwards;font-family:Montserrat,sans-serif;font-size:44px;font-weight:800;margin:0;text-wrap:balance">Some Of Our Latest Engineering &amp; Design Projects</h1>
+  </section>
+
+  <section style="padding:76px 24px;max-width:1140px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><img src="https://pasquiniengineering.com/wp-content/uploads/2022/10/residental.jpg" alt="Residential project" style="width:100%;height:260px;object-fit:cover;border-radius:8px"><figcaption style="font-family:Montserrat,sans-serif;font-weight:700;color:#16324f;font-size:15px">Residential</figcaption></figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><img src="https://pasquiniengineering.com/wp-content/uploads/2022/10/commercial-project-california-pasquini-engineering-1-1.jpg" alt="Commercial project in California" style="width:100%;height:260px;object-fit:cover;border-radius:8px"><figcaption style="font-family:Montserrat,sans-serif;font-weight:700;color:#16324f;font-size:15px">Commercial</figcaption></figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><img src="https://pasquiniengineering.com/wp-content/uploads/2022/10/industrial-project-california-pasquini-engineering-3-1.jpg" alt="Industrial project in California" style="width:100%;height:260px;object-fit:cover;border-radius:8px"><figcaption style="font-family:Montserrat,sans-serif;font-weight:700;color:#16324f;font-size:15px">Industrial</figcaption></figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><img src="https://pasquiniengineering.com/wp-content/uploads/2020/08/Commercial-8.jpg" alt="Commercial development project" style="width:100%;height:260px;object-fit:cover;border-radius:8px"><figcaption style="font-family:Montserrat,sans-serif;font-weight:700;color:#16324f;font-size:15px">Commercial Development</figcaption></figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><img src="https://pasquiniengineering.com/wp-content/uploads/2022/05/california-building-design-firm-pasquini-engineering.jpg" alt="Building design project" style="width:100%;height:260px;object-fit:cover;border-radius:8px"><figcaption style="font-family:Montserrat,sans-serif;font-weight:700;color:#16324f;font-size:15px">Building Design</figcaption></figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><img src="https://pasquiniengineering.com/wp-content/uploads/2020/09/construction-project-management-img.jpg" alt="Construction management project" style="width:100%;height:260px;object-fit:cover;border-radius:8px"><figcaption style="font-family:Montserrat,sans-serif;font-weight:700;color:#16324f;font-size:15px">Construction Management</figcaption></figure>
+    </div>
+    <p style="text-align:center;margin:34px 0 0;font-size:14.5px">See the full gallery on our <a href="https://pasquiniengineering.com/projects/" style="font-weight:700">live projects page →</a></p>
+  </section>
+
+  <section style="background:#2172b8;color:#ffffff;text-align:center;padding:66px 24px">
+    <h2 style="font-family:Montserrat,sans-serif;font-size:32px;font-weight:800;margin:0 0 12px">Schedule An Appointment</h2>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px">
+      <a href="tel:8885099252" style="background:#ffc20e;color:#1a1a1a;padding:13px 28px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#e8ae00;color:#1a1a1a">(888) 509-9252</a>
+      <a href="Contact Us.dc.html" style="background:transparent;border:2px solid #ffffff;color:#ffffff;padding:11px 26px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#ffffff;color:#16324f">Contact Us</a>
+    </div>
+    <div style="margin-top:16px;font-size:13.5px;opacity:0.85">If we miss your call, we'll text you back within minutes.</div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,420px"></dc-import>
+  <dc-import name="ChatWidget" hint-size="0px,0px"></dc-import>
+  <dc-import name="StickyBar" hint-size="0px,0px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>
