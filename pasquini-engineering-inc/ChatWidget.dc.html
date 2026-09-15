@@ -8,84 +8,125 @@
 <body>
 <x-dc>
 <helmet>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<style>body{margin:0;font-family:'Open Sans',Helvetica,Arial,sans-serif}a{color:#2172b8;text-decoration:none}a:hover{color:#16324f}</style>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Source Sans 3',Helvetica,Arial,sans-serif}a{color:#b9603a;text-decoration:none}a:hover{color:#1e2a35}@keyframes peChatIn{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}@keyframes peDot{0%,80%,100%{opacity:.25}40%{opacity:1}}</style>
 </helmet>
-<!-- Mock of the GoHighLevel chat widget. In production, replace this DC with the GHL embed script (widgets.leadconnectorhq.com) placed before </body>. -->
-<div style="position:fixed;bottom:24px;right:24px;z-index:9999;font-family:'Open Sans',Helvetica,Arial,sans-serif;display:flex;flex-direction:column;align-items:flex-end;gap:12px">
+<!-- Mock of the GoHighLevel chat agent. In production, replace with the GHL embed script (widgets.leadconnectorhq.com) before </body>; this mock shows the qualifying flow the agent runs. -->
+<div style="position:fixed;bottom:24px;right:24px;z-index:9999;font-family:'Source Sans 3',Helvetica,Arial,sans-serif;display:flex;flex-direction:column;align-items:flex-end;gap:12px">
   <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
-    <div style="width:340px;height:460px;background:#ffffff;border-radius:12px;box-shadow:0 12px 40px rgba(22,50,79,0.3);display:flex;flex-direction:column;overflow:hidden">
-      <div style="background:#16324f;color:#ffffff;padding:14px 16px;display:flex;align-items:center;gap:10px">
+    <div style="width:350px;height:min(500px,calc(100vh - 120px));background:#ffffff;border-radius:6px;box-shadow:0 18px 50px rgba(30,42,53,0.32);display:flex;flex-direction:column;overflow:hidden;animation:peChatIn .35s cubic-bezier(.22,1,.36,1);border-top:3px solid #b9603a">
+      <div style="background:#1e2a35;color:#ffffff;padding:14px 16px;display:flex;align-items:center;gap:10px">
         <div style="width:38px;height:38px;border-radius:50%;background:#ffffff;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden"><img src="https://pasquiniengineering.com/wp-content/uploads/2020/08/pe-nav-logo@2x.png" alt="" style="width:28px;height:28px;object-fit:contain"></div>
         <div style="flex:1">
-          <div style="font-weight:700;font-size:14px">Pasquini Engineering</div>
-          <div style="font-size:11.5px;opacity:0.8">Typically replies in a few minutes</div>
+          <div style="font-weight:600;font-size:14.5px;font-family:Jost,sans-serif">Pasquini Engineering, Inc.</div>
+          <div style="font-size:11.5px;color:#e9c78a;display:flex;align-items:center;gap:6px"><span style="width:6px;height:6px;border-radius:50%;background:#7fb069;display:inline-block"></span>Project assistant · replies instantly</div>
         </div>
-        <button onClick="{{ toggle }}" style="background:none;border:none;color:#ffffff;font-size:18px;cursor:pointer;line-height:1">×</button>
+        <button onClick="{{ toggle }}" aria-label="Close chat" style="background:none;border:none;color:#ffffff;font-size:20px;cursor:pointer;line-height:1">×</button>
       </div>
-      <div style="flex:1;padding:14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;background:#f4f7fa">
+      <div style="height:3px;background:#eae3d6;display:flex"><div style="{{ progressStyle }}"></div></div>
+      <div ref="{{ scrollRef }}" style="flex:1;padding:14px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;background:#f4efe6">
         <sc-for list="{{ msgs }}" as="m" hint-placeholder-count="1">
           <div style="{{ m.style }}">{{ m.text }}</div>
         </sc-for>
+        <sc-if value="{{ typing }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#ffffff;border:1px solid #e3dccf;border-radius:10px 10px 10px 2px;padding:10px 14px;align-self:flex-start;display:flex;gap:4px"><span style="width:6px;height:6px;border-radius:50%;background:#857c70;animation:peDot 1.2s infinite"></span><span style="width:6px;height:6px;border-radius:50%;background:#857c70;animation:peDot 1.2s .2s infinite"></span><span style="width:6px;height:6px;border-radius:50%;background:#857c70;animation:peDot 1.2s .4s infinite"></span></div>
+        </sc-if>
         <sc-if value="{{ showQuick }}" hint-placeholder-val="{{ false }}">
-          <div style="display:flex;flex-direction:column;gap:6px;margin-top:2px">
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:2px">
             <sc-for list="{{ quick }}" as="q" hint-placeholder-count="3">
-              <button onClick="{{ q.pick }}" style="background:#ffffff;border:1px solid #2172b8;color:#2172b8;border-radius:16px;padding:7px 12px;font-size:12.5px;font-weight:600;cursor:pointer;text-align:left;font-family:inherit" style-hover="background:#eaf3fa">{{ q.label }}</button>
+              <button onClick="{{ q.pick }}" style="background:#ffffff;border:1px solid #b9603a;color:#b9603a;border-radius:2px;padding:7px 12px;font-size:12.5px;font-weight:600;cursor:pointer;text-align:left;font-family:inherit" style-hover="background:#b9603a;color:#ffffff">{{ q.label }}</button>
             </sc-for>
           </div>
         </sc-if>
+        <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#ffffff;border:1px solid #e3dccf;border-radius:3px;padding:12px 14px;font-size:12.5px;color:#3a3631;display:flex;flex-direction:column;gap:6px;align-self:stretch">
+            <div style="font-family:Jost,sans-serif;font-weight:600;color:#1e2a35;font-size:13px;letter-spacing:0.04em;text-transform:uppercase">Your project summary</div>
+            <div><span style="color:#857c70">Project:</span> {{ sum.project }}</div>
+            <div><span style="color:#857c70">Location:</span> {{ sum.location }}</div>
+            <div><span style="color:#857c70">Timeline:</span> {{ sum.timeline }}</div>
+            <div style="border-top:1px solid #eae3d6;padding-top:6px;color:#b9603a;font-weight:600">A confirmation email is on its way. An engineer will call within one business day.</div>
+          </div>
+        </sc-if>
       </div>
-      <div style="display:flex;gap:8px;padding:10px;border-top:1px solid #e2e8ef;background:#ffffff">
-        <input value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" placeholder="Type your message…" style="flex:1;border:1px solid #cfd8e2;border-radius:6px;padding:9px 10px;font-size:13px;font-family:inherit;outline-color:#2172b8">
-        <button onClick="{{ send }}" style="background:#ffc20e;color:#1a1a1a;border:none;border-radius:6px;padding:0 16px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit" style-hover="background:#e8ae00">Send</button>
+      <div style="display:flex;gap:8px;padding:10px;border-top:1px solid #e3dccf;background:#ffffff">
+        <input value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" placeholder="{{ placeholder }}" style="flex:1;border:1px solid #d6cdbd;border-radius:2px;padding:9px 10px;font-size:13px;font-family:inherit;outline-color:#b9603a">
+        <button onClick="{{ send }}" style="background:#d9a441;color:#1a1a1a;border:none;border-radius:2px;padding:0 16px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit" style-hover="background:#c28f2e">Send</button>
       </div>
-      <div style="text-align:center;font-size:10px;color:#9aa7b4;padding:5px 0 7px;background:#ffffff">Powered by our messaging platform · SMS rates may apply</div>
+      <div style="text-align:center;font-size:10.5px;color:#9a9084;padding:5px 0 7px;background:#ffffff">Prefer to talk? Call <a href="tel:6613289600" style="color:#b9603a;font-weight:600">(661) 328-9600</a> · missed calls get a text back</div>
     </div>
   </sc-if>
   <sc-if value="{{ showPill }}" hint-placeholder-val="{{ false }}">
-    <div style="background:#ffffff;border-radius:20px;box-shadow:0 4px 16px rgba(22,50,79,0.22);padding:9px 14px;font-size:12.5px;color:#16324f;font-weight:600;max-width:250px">
-      Can't call right now? Chat with us — or if we miss your call, we'll text you back.
-    </div>
+    <button onClick="{{ toggle }}" style="background:#ffffff;border:none;border-left:3px solid #b9603a;border-radius:3px;box-shadow:0 6px 20px rgba(30,42,53,0.2);padding:10px 14px;font-size:13px;color:#1e2a35;font-weight:600;max-width:260px;text-align:left;cursor:pointer;font-family:inherit;line-height:1.45">Planning an ADU, addition, or rebuild? Tell us about it — takes 30 seconds.</button>
   </sc-if>
-  <button onClick="{{ toggle }}" style="width:58px;height:58px;border-radius:50%;background:#ffc20e;border:none;cursor:pointer;box-shadow:0 6px 20px rgba(22,50,79,0.35);color:#1a1a1a;font-size:24px;display:flex;align-items:center;justify-content:center" style-hover="background:#e8ae00">{{ icon }}</button>
+  <button onClick="{{ toggle }}" aria-label="Open chat" style="width:58px;height:58px;border-radius:50%;background:#ffffff;border:2px solid #b9603a;cursor:pointer;box-shadow:0 8px 24px rgba(30,42,53,0.35);display:flex;align-items:center;justify-content:center;padding:0;overflow:hidden" style-hover="background:#f4efe6">
+    <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}"><span style="font-family:Jost,sans-serif;font-size:22px;font-weight:600;color:#1e2a35;line-height:1">–</span></sc-if>
+    <sc-if value="{{ closed }}" hint-placeholder-val="{{ true }}"><img src="https://pasquiniengineering.com/wp-content/uploads/2020/08/pe-nav-logo@2x.png" alt="" style="width:36px;height:36px;object-fit:contain"></sc-if>
+  </button>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;420px&quot;,&quot;height&quot;:&quot;560px&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;420px&quot;,&quot;height&quot;:&quot;600px&quot;}}">
 class Component extends DCLogic {
-  state = { open: false, dismissed: false, input: "", showQuick: true, msgs: [
-    { who: "them", text: "Hi! Thanks for visiting Pasquini Engineering. How can we help with your project?" }
+  state = { open: false, dismissed: false, input: "", typing: false, step: 0, answers: {}, msgs: [
+    { who: "them", text: "Hi, welcome to Pasquini Engineering, Inc. I'll ask three quick questions so the right engineer can call you back prepared. What kind of project are you planning?" }
   ]};
-  bot(text) {
-    setTimeout(() => this.setState(s => ({ msgs: [...s.msgs, { who: "them", text }] })), 700);
+  steps = [
+    { key: "project", quick: ["ADU / garage conversion", "Home addition", "Fire rebuild", "New custom home", "Remodel / structural repair", "Something else"] },
+    { key: "location", quick: ["Bakersfield", "Los Angeles area", "Santa Rosa", "Central Coast", "Sacramento", "Outside California"] },
+    { key: "timeline", quick: ["Ready to start now", "Within 3 months", "Later this year", "Just exploring"] },
+    { key: "name", quick: [] },
+    { key: "phone", quick: [] }
+  ];
+  prompts = {
+    location: "Where is the property? City or zip is fine.",
+    timeline: "When are you hoping to start?",
+    name: "Great. Who am I speaking with?",
+    phone: (a) => `Thanks, ${a.name}. What's the best phone number to reach you? Our team follows up by text and email right away.`,
+    done: (a) => `Perfect. I've flagged this as a ${a.project.toLowerCase()} in ${a.location} for our team. You'll get a confirmation email now, and an engineer will call within one business day.`
+  };
+  bot(text, then) {
+    this.setState({ typing: true });
+    setTimeout(() => { this.setState(s => ({ typing: false, msgs: [...s.msgs, { who: "them", text }] })); this.scroll(); then && then(); }, 800);
   }
-  pick(label) {
-    this.setState(s => ({ showQuick: false, msgs: [...s.msgs, { who: "me", text: label }] }));
-    this.bot("Great — leave your name and best phone number below and our team will text you back within minutes.");
+  scroll() { requestAnimationFrame(() => { const el = this.scrollEl; if (el) el.scrollTop = el.scrollHeight; }); }
+  answer(text) {
+    const step = this.steps[this.state.step]; if (!step) return;
+    const answers = { ...this.state.answers, [step.key]: text };
+    const next = this.state.step + 1;
+    this.setState(s => ({ answers, step: next, input: "", msgs: [...s.msgs, { who: "me", text }] }));
+    this.scroll();
+    const nk = this.steps[next] ? this.steps[next].key : "done";
+    const p = this.prompts[nk]; this.bot(typeof p === "function" ? p(answers) : p);
   }
   renderVals() {
-    const themStyle = "background:#ffffff;border:1px solid #e2e8ef;color:#3d4852;align-self:flex-start;";
-    const meStyle = "background:#2172b8;color:#ffffff;align-self:flex-end;";
-    const base = "border-radius:10px;padding:9px 12px;font-size:13px;line-height:1.5;max-width:82%";
+    const themStyle = "background:#ffffff;border:1px solid #e3dccf;color:#3a3631;align-self:flex-start;border-radius:10px 10px 10px 2px;";
+    const meStyle = "background:#1e2a35;color:#ffffff;align-self:flex-end;border-radius:10px 10px 2px 10px;";
+    const base = "padding:9px 12px;font-size:13px;line-height:1.5;max-width:84%";
+    const step = this.steps[this.state.step];
+    const done = this.state.step >= this.steps.length;
+    const pct = Math.min(100, Math.round(this.state.step / this.steps.length * 100));
+    const a = this.state.answers;
     return {
       open: this.state.open,
       showPill: !this.state.open && !this.state.dismissed,
-      icon: this.state.open ? "–" : "✆",
-      showQuick: this.state.showQuick,
+      closed: !this.state.open,
+      typing: this.state.typing,
+      done,
+      sum: { project: a.project || "", location: a.location || "", timeline: a.timeline || "" },
+      progressStyle: `width:${pct}%;background:#b9603a;transition:width .4s`,
+      showQuick: !!step && step.quick.length > 0 && !this.state.typing,
+      quick: step ? step.quick.map(label => ({ label, pick: () => this.answer(label) })) : [],
+      placeholder: step ? (step.key === "phone" ? "(555) 555-5555" : step.key === "name" ? "Your name" : "Type your answer…") : "Anything else we should know?",
       input: this.state.input,
       msgs: this.state.msgs.map(m => ({ text: m.text, style: (m.who === "me" ? meStyle : themStyle) + base })),
-      quick: [
-        "Start a new project",
-        "Fire rebuild help (Altadena / Palisades)",
-        "Request a callback / text back"
-      ].map(label => ({ label, pick: () => this.pick(label) })),
+      scrollRef: el => { this.scrollEl = el; },
       toggle: () => this.setState(s => ({ open: !s.open, dismissed: true })),
       onInput: e => this.setState({ input: e.target.value }),
       onKey: e => { if (e.key === "Enter") this.renderVals().send(); },
       send: () => {
-        const t = this.state.input.trim();
-        if (!t) return;
-        this.setState(s => ({ input: "", showQuick: false, msgs: [...s.msgs, { who: "me", text: t }] }));
-        this.bot("Thanks! A member of our team will follow up by text shortly. For anything urgent, call (888) 509-9252.");
+        const t = this.state.input.trim(); if (!t) return;
+        if (!done) return this.answer(t);
+        this.setState(s => ({ input: "", msgs: [...s.msgs, { who: "me", text: t }] }));
+        this.bot("Noted — I've added that to your file. Talk soon.");
       }
     };
   }

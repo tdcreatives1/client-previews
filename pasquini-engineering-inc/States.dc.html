@@ -8,21 +8,22 @@
 <body>
 <x-dc>
 <helmet>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<style>body{margin:0;font-family:'Open Sans',Helvetica,Arial,sans-serif;color:#3d4852;background:#ffffff}a{color:#2172b8;text-decoration:none}a:hover{color:#16324f}@keyframes peFlyUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}@keyframes peFadeIn{from{opacity:0}to{opacity:1}}</style>
+<script src="./reveal.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Source Sans 3',Helvetica,Arial,sans-serif;color:#3a3631;background:#ffffff}a{color:#b9603a;text-decoration:none}a:hover{color:#1e2a35}@keyframes peFlyUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}@keyframes peFadeIn{from{opacity:0}to{opacity:1}}</style>
 </helmet>
-<div style="font-family:'Open Sans',Helvetica,Arial,sans-serif">
+<div style="font-family:'Source Sans 3',Helvetica,Arial,sans-serif">
   <dc-import name="Header" hint-size="100%,120px"></dc-import>
 
-  <div style="background:#f4f7fa;padding:12px 40px;font-size:13px"><a href="Home.dc.html">Home</a> <span style="color:#8a97a5">/</span> <a href="Service Areas.dc.html">Service Areas</a> <span style="color:#8a97a5">/</span> <span style="color:#16324f;font-weight:600">{{ name }}</span></div>
+  <div style="background:#f4efe6;padding:12px 40px;font-size:13px"><a href="Home.dc.html">Home</a> <span style="color:#857c70">/</span> <a href="Service Areas.dc.html">Service Areas</a> <span style="color:#857c70">/</span> <span style="color:#1e2a35;font-weight:600">{{ name }}</span></div>
 
-  <section data-screen-label="State Hero" style="background:linear-gradient(rgba(13,31,50,0.82),rgba(13,31,50,0.82)),url('https://pasquiniengineering.com/wp-content/uploads/2022/10/commercial-project-california-pasquini-engineering-1-1.jpg') center/cover;color:#ffffff;padding:88px 24px;text-align:center">
-    <div style="animation:peFlyUp .7s cubic-bezier(.22,1,.36,1) 0s backwards;font-family:Montserrat,sans-serif;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#ffd9a8;font-weight:700;margin-bottom:12px">Beyond California</div>
-    <h1 style="animation:peFlyUp .8s cubic-bezier(.22,1,.36,1) .15s backwards;font-family:Montserrat,sans-serif;font-size:44px;font-weight:800;margin:0 0 16px;line-height:1.2">Engineering Services In {{ name }}</h1>
+  <section data-screen-label="State Hero" style="background:linear-gradient(rgba(30,42,53,0.82),rgba(30,42,53,0.82)),url('https://pasquiniengineering.com/wp-content/uploads/2022/10/commercial-project-california-pasquini-engineering-1-1.jpg') center/cover;color:#ffffff;padding:88px 24px;text-align:center">
+    <div style="animation:peFlyUp .7s cubic-bezier(.22,1,.36,1) 0s backwards;font-family:Jost,sans-serif;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#e9c78a;font-weight:700;margin-bottom:12px">Beyond California</div>
+    <h1 style="animation:peFlyUp .8s cubic-bezier(.22,1,.36,1) .15s backwards;font-family:Jost,sans-serif;font-size:44px;font-weight:600;margin:0 0 16px;line-height:1.2">Engineering Services In {{ name }}</h1>
     <p style="animation:peFlyUp .8s cubic-bezier(.22,1,.36,1) .3s backwards;max-width:680px;margin:0 auto 28px;font-size:17px;line-height:1.7;opacity:0.9">{{ tagline }}</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="Contact Us.dc.html" style="background:#ffc20e;color:#1a1a1a;padding:13px 28px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#e8ae00;color:#1a1a1a">Get Started Today</a>
-      <a href="tel:8885099252" style="background:transparent;border:2px solid #ffffff;color:#ffffff;padding:11px 26px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#ffffff;color:#16324f">(888) 509-9252</a>
+      <a href="Contact Us.dc.html" style="background:#d9a441;color:#1a1a1a;padding:13px 28px;border-radius:2px;font-weight:700;font-size:15px" style-hover="background:#c28f2e;color:#1a1a1a">Get Started Today</a>
+      <a href="tel:8885099252" style="background:transparent;border:2px solid #ffffff;color:#ffffff;padding:11px 26px;border-radius:2px;font-weight:700;font-size:15px" style-hover="background:#ffffff;color:#1e2a35">(888) 509-9252</a>
     </div>
     <div style="margin-top:14px;font-size:13px;opacity:0.8">If we miss your call, we'll text you back within minutes.</div>
   </section>
@@ -30,28 +31,28 @@
   <section style="padding:72px 24px;max-width:1140px;margin:0 auto">
     <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:52px;align-items:center">
       <div>
-        <h2 style="font-family:Montserrat,sans-serif;font-size:30px;font-weight:800;color:#16324f;margin:0 0 18px">Full-Service Engineering, Wherever Your Project Is</h2>
+        <h2 style="font-family:Jost,sans-serif;font-size:30px;font-weight:600;color:#1e2a35;margin:0 0 18px">Full-Service Engineering, Wherever Your Project Is</h2>
         <p style="line-height:1.8;margin:0 0 14px">{{ intro }}</p>
-        <p style="line-height:1.8;margin:0">No matter where you are Pasquini Engineering has you covered with completed jobs in California, Oregon, Washington, Nevada, Arizona, Hawaii, Alaska, and Texas. Plans are prepared in-house by our California team and coordinated with your local jurisdiction, builder, and plan checkers.</p>
+        <p style="line-height:1.8;margin:0">No matter where you are Pasquini Engineering, Inc. has you covered with completed jobs in California, Oregon, Washington, Nevada, Arizona, Hawaii, Alaska, and Texas. Plans are prepared in-house by our California team and coordinated with your local jurisdiction, builder, and plan checkers.</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px">
-        <img src="https://pasquiniengineering.com/wp-content/uploads/2024/01/pasquini-map.png" alt="Map of states served by Pasquini Engineering" style="width:100%;border-radius:8px">
+        <div style="position:relative;aspect-ratio:975/610;border:1px solid #e3dccf;background:#fbf9f5;border-radius:3px;overflow:hidden"><iframe src="projects-map.html" title="Map of states served by Pasquini Engineering, Inc." style="position:absolute;inset:0;width:100%;height:100%;border:0;background:transparent"></iframe></div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
           <sc-for list="{{ others }}" as="o" hint-placeholder-count="6">
-            <a href="{{ o.href }}" style="background:#f4f7fa;border-radius:16px;padding:6px 14px;font-size:13px;font-weight:600;color:#16324f" style-hover="background:#e8eff5;color:#2172b8">{{ o.label }}</a>
+            <a href="{{ o.href }}" style="background:#f4efe6;border-radius:16px;padding:6px 14px;font-size:13px;font-weight:600;color:#1e2a35" style-hover="background:#eae3d6;color:#b9603a">{{ o.label }}</a>
           </sc-for>
         </div>
       </div>
     </div>
   </section>
 
-  <section style="background:#f4f7fa;padding:72px 24px">
+  <section style="background:#f4efe6;padding:72px 24px">
     <div style="max-width:1140px;margin:0 auto">
-      <h2 style="font-family:Montserrat,sans-serif;font-size:30px;font-weight:800;color:#16324f;margin:0 0 36px;text-align:center">What We Do In {{ name }}</h2>
+      <h2 style="font-family:Jost,sans-serif;font-size:30px;font-weight:600;color:#1e2a35;margin:0 0 36px;text-align:center">What We Do In {{ name }}</h2>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px">
         <sc-for list="{{ points }}" as="p" hint-placeholder-count="3">
-          <div style="background:#ffffff;border-radius:8px;padding:28px">
-            <h3 style="font-family:Montserrat,sans-serif;font-size:18px;color:#16324f;margin:0 0 10px">{{ p.h }}</h3>
+          <div style="background:#ffffff;border-radius:3px;padding:28px">
+            <h3 style="font-family:Jost,sans-serif;font-size:18px;color:#1e2a35;margin:0 0 10px">{{ p.h }}</h3>
             <p style="margin:0;line-height:1.7;font-size:14.5px">{{ p.t }}</p>
           </div>
         </sc-for>
@@ -60,18 +61,18 @@
   </section>
 
   <section style="padding:72px 24px;max-width:860px;margin:0 auto;text-align:center">
-    <h2 style="font-family:Montserrat,sans-serif;font-size:30px;font-weight:800;color:#16324f;margin:0 0 14px">Why Clients In {{ name }} Work With Us</h2>
+    <h2 style="font-family:Jost,sans-serif;font-size:30px;font-weight:600;color:#1e2a35;margin:0 0 14px">Why Clients In {{ name }} Work With Us</h2>
     <p style="line-height:1.8;margin:0 0 10px">Since 1990, Pasquini Engineering, Inc. has successfully designed and engineered thousands of residential projects for homeowners and commercial developments for general contractors, business owners, and investors.</p>
     <p style="line-height:1.8;margin:0">Our expert team brings decades of experience in structural engineering, building design, drafting, construction management, land development, and surveying — a true one-stop shop that gets project plans completed in-house without time-consuming coordination and costly delays.</p>
   </section>
 
-  <section style="background:#16324f;color:#ffffff;text-align:center;padding:66px 24px">
-    <h2 style="font-family:Montserrat,sans-serif;font-size:30px;font-weight:800;margin:0 0 12px">Start Your {{ name }} Project Today</h2>
+  <section style="background-color:#1e2a35;background-image:linear-gradient(rgba(233,199,138,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(233,199,138,0.07) 1px,transparent 1px);background-size:48px 48px;color:#ffffff;text-align:center;padding:76px 24px;border-bottom:3px solid #b9603a">
+    <h2 style="font-family:Jost,sans-serif;font-size:30px;font-weight:600;margin:0 0 12px">Start Your {{ name }} Project Today</h2>
     <p style="max-width:580px;margin:0 auto 26px;line-height:1.7;opacity:0.9">One-stop engineering plans for permits — affordable, quick, and stress-free.</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="tel:8885099252" style="background:#ffc20e;color:#1a1a1a;padding:13px 28px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#e8ae00;color:#1a1a1a">(888) 509-9252</a>
-      <a href="sms:8885099252" style="background:transparent;border:2px solid #ffffff;color:#ffffff;padding:11px 26px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#ffffff;color:#16324f">Text Us</a>
-      <a href="Contact Us.dc.html" style="background:#2172b8;color:#ffffff;padding:13px 28px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#1a5c94;color:#ffffff">Schedule An Appointment</a>
+      <a href="tel:8885099252" style="background:#d9a441;color:#1a1a1a;padding:13px 28px;border-radius:2px;font-weight:700;font-size:15px" style-hover="background:#c28f2e;color:#1a1a1a">(888) 509-9252</a>
+      <a href="sms:8885099252" style="background:transparent;border:2px solid #ffffff;color:#ffffff;padding:11px 26px;border-radius:2px;font-weight:700;font-size:15px" style-hover="background:#ffffff;color:#1e2a35">Text Us</a>
+      <a href="Contact Us.dc.html" style="background:#b9603a;color:#ffffff;padding:13px 28px;border-radius:2px;font-weight:700;font-size:15px" style-hover="background:#9a4c2d;color:#ffffff">Schedule An Appointment</a>
     </div>
   </section>
 

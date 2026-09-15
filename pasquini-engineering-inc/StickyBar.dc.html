@@ -8,13 +8,13 @@
 <body>
 <x-dc>
 <helmet>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<style>body{margin:0;font-family:'Open Sans',Helvetica,Arial,sans-serif}a{color:#2172b8;text-decoration:none}a:hover{color:#16324f}</style>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Source Sans 3',Helvetica,Arial,sans-serif}a{color:#b9603a;text-decoration:none}a:hover{color:#1e2a35}</style>
 </helmet>
 <sc-if value="{{ show }}" hint-placeholder-val="{{ false }}">
-  <div style="position:fixed;bottom:0;left:0;right:0;z-index:9998;display:flex;font-family:'Open Sans',Helvetica,Arial,sans-serif;box-shadow:0 -4px 16px rgba(22,50,79,0.25)">
-    <a href="{{ telHref }}" style="flex:1;background:#ffc20e;color:#1a1a1a;text-align:center;padding:15px 8px;font-weight:700;font-size:15px" style-hover="background:#e8ae00;color:#1a1a1a">📞 Call Now</a>
-    <a href="{{ smsHref }}" style="flex:1;background:#16324f;color:#ffffff;text-align:center;padding:15px 8px;font-weight:700;font-size:15px" style-hover="background:#0d1f32;color:#ffffff">💬 Text Us</a>
+  <div style="position:fixed;bottom:0;left:0;right:0;z-index:9998;display:flex;font-family:'Source Sans 3',Helvetica,Arial,sans-serif;box-shadow:0 -4px 16px rgba(30,42,53,0.25)">
+    <a href="{{ telHref }}" style="flex:1;background:#d9a441;color:#1a1a1a;text-align:center;padding:15px 8px;font-weight:700;font-size:15px" style-hover="background:#c28f2e;color:#1a1a1a">Call Now · we text back if we miss you</a>
+    <a href="{{ smsHref }}" style="flex:1;background:#1e2a35;color:#ffffff;text-align:center;padding:15px 8px;font-weight:700;font-size:15px" style-hover="background:#131c24;color:#ffffff">Text Us</a>
   </div>
 </sc-if>
 </x-dc>

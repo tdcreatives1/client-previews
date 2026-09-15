@@ -8,36 +8,95 @@
 <body>
 <x-dc>
 <helmet>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<style>body{margin:0;font-family:'Open Sans',Helvetica,Arial,sans-serif;color:#3d4852;background:#ffffff}a{color:#2172b8;text-decoration:none}a:hover{color:#16324f}@keyframes peFlyUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}@keyframes peFadeIn{from{opacity:0}to{opacity:1}}</style>
+<script src="./reveal.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Source Sans 3',Helvetica,Arial,sans-serif;color:#3a3631;background:#fbf9f5}a{color:#b9603a;text-decoration:none}a:hover{color:#1e2a35}@keyframes peFlyUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}@keyframes peFadeIn{from{opacity:0}to{opacity:1}}</style>
 </helmet>
-<div style="font-family:'Open Sans',Helvetica,Arial,sans-serif">
+<div style="font-family:'Source Sans 3',Helvetica,Arial,sans-serif">
   <dc-import name="Header" hint-size="100%,120px"></dc-import>
 
-  <section data-screen-label="Projects Hero" style="background:#16324f;color:#ffffff;text-align:center;padding:66px 24px">
-    <div style="font-family:Montserrat,sans-serif;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#ffd9a8;font-weight:700;margin-bottom:12px">Projects</div>
-    <h1 style="animation:peFlyUp .8s cubic-bezier(.22,1,.36,1) .15s backwards;font-family:Montserrat,sans-serif;font-size:44px;font-weight:800;margin:0;text-wrap:balance">Some Of Our Latest Engineering &amp; Design Projects</h1>
+  <section data-screen-label="Projects Hero" style="background-color:#1e2a35;background-image:linear-gradient(rgba(233,199,138,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(233,199,138,0.07) 1px,transparent 1px);background-size:48px 48px;color:#ffffff;padding:90px 24px 80px;border-bottom:3px solid #b9603a">
+    <div style="max-width:1140px;margin:0 auto">
+      <div style="animation:peFlyUp .7s cubic-bezier(.22,1,.36,1) 0s backwards;display:flex;align-items:center;gap:14px;font-family:Jost,sans-serif;font-size:13.5px;letter-spacing:0.2em;text-transform:uppercase;color:#e9c78a;font-weight:500;margin-bottom:18px"><span style="width:48px;height:1px;background:#d9a441;display:inline-block"></span>Projects · 9,000+ permitted since 1990</div>
+      <h1 style="animation:peFlyUp .8s cubic-bezier(.22,1,.36,1) .15s backwards;font-family:Jost,sans-serif;font-size:54px;font-weight:600;margin:0 0 18px;line-height:1.08;max-width:820px;letter-spacing:-0.01em;text-wrap:balance">From the drawing board to the finished build.</h1>
+      <p style="animation:peFlyUp .8s cubic-bezier(.22,1,.36,1) .3s backwards;max-width:600px;margin:0;font-size:18px;line-height:1.6;color:#d4cbbb">Every project below started as a set of stamped plans from our office. Slide each one to compare the engineering drawing with what got built.</p>
+    </div>
   </section>
 
-  <section style="padding:76px 24px;max-width:1140px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-      <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><img src="https://pasquiniengineering.com/wp-content/uploads/2022/10/residental.jpg" alt="Residential project" style="width:100%;height:260px;object-fit:cover;border-radius:8px"><figcaption style="font-family:Montserrat,sans-serif;font-weight:700;color:#16324f;font-size:15px">Residential</figcaption></figure>
-      <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><img src="https://pasquiniengineering.com/wp-content/uploads/2022/10/commercial-project-california-pasquini-engineering-1-1.jpg" alt="Commercial project in California" style="width:100%;height:260px;object-fit:cover;border-radius:8px"><figcaption style="font-family:Montserrat,sans-serif;font-weight:700;color:#16324f;font-size:15px">Commercial</figcaption></figure>
-      <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><img src="https://pasquiniengineering.com/wp-content/uploads/2022/10/industrial-project-california-pasquini-engineering-3-1.jpg" alt="Industrial project in California" style="width:100%;height:260px;object-fit:cover;border-radius:8px"><figcaption style="font-family:Montserrat,sans-serif;font-weight:700;color:#16324f;font-size:15px">Industrial</figcaption></figure>
-      <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><img src="https://pasquiniengineering.com/wp-content/uploads/2020/08/Commercial-8.jpg" alt="Commercial development project" style="width:100%;height:260px;object-fit:cover;border-radius:8px"><figcaption style="font-family:Montserrat,sans-serif;font-weight:700;color:#16324f;font-size:15px">Commercial Development</figcaption></figure>
-      <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><img src="https://pasquiniengineering.com/wp-content/uploads/2022/05/california-building-design-firm-pasquini-engineering.jpg" alt="Building design project" style="width:100%;height:260px;object-fit:cover;border-radius:8px"><figcaption style="font-family:Montserrat,sans-serif;font-weight:700;color:#16324f;font-size:15px">Building Design</figcaption></figure>
-      <figure style="margin:0;display:flex;flex-direction:column;gap:10px"><img src="https://pasquiniengineering.com/wp-content/uploads/2020/09/construction-project-management-img.jpg" alt="Construction management project" style="width:100%;height:260px;object-fit:cover;border-radius:8px"><figcaption style="font-family:Montserrat,sans-serif;font-weight:700;color:#16324f;font-size:15px">Construction Management</figcaption></figure>
+  <section data-screen-label="Map" style="background:#f4efe6;padding:80px 24px;border-bottom:1px solid #e3dccf">
+    <div style="max-width:1140px;margin:0 auto;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:48px;align-items:center">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;font-family:Jost,sans-serif;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#b9603a;font-weight:500;margin-bottom:14px"><span style="width:32px;height:1px;background:#b9603a;display:inline-block"></span>Where We've Built</div>
+        <h2 style="font-family:Jost,sans-serif;font-size:36px;font-weight:600;color:#1e2a35;margin:0 0 16px;line-height:1.15">Eight states. One set of standards.</h2>
+        <p style="line-height:1.75;margin:0 0 24px;font-size:15.5px">Headquartered in Bakersfield with completed work across California and seven other states. Hover a pin for details. Terracotta pins mark our fire-rebuild priority areas.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e3dccf;border:1px solid #e3dccf">
+          <div style="background:#fbf9f5;padding:16px 18px"><div style="font-family:Jost,sans-serif;font-size:28px;font-weight:600;color:#1e2a35;line-height:1">9,000+</div><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#857c70;margin-top:4px">Projects</div></div>
+          <div style="background:#fbf9f5;padding:16px 18px"><div style="font-family:Jost,sans-serif;font-size:28px;font-weight:600;color:#1e2a35;line-height:1">8</div><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#857c70;margin-top:4px">States</div></div>
+          <div style="background:#fbf9f5;padding:16px 18px"><div style="font-family:Jost,sans-serif;font-size:28px;font-weight:600;color:#1e2a35;line-height:1">10</div><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#857c70;margin-top:4px">California regions</div></div>
+          <div style="background:#fbf9f5;padding:16px 18px"><div style="font-family:Jost,sans-serif;font-size:28px;font-weight:600;color:#b9603a;line-height:1">3</div><div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#857c70;margin-top:4px">Fire rebuild areas</div></div>
+        </div>
+      </div>
+      <div style="position:relative;aspect-ratio:975/610;border:1px solid #e3dccf;background:#fbf9f5;border-radius:3px;overflow:hidden">
+        <iframe src="projects-map.html" title="Map of Pasquini Engineering, Inc. project locations" style="position:absolute;inset:0;width:100%;height:100%;border:0;background:transparent"></iframe>
+      </div>
     </div>
-    <p style="text-align:center;margin:34px 0 0;font-size:14.5px">See the full gallery on our <a href="https://pasquiniengineering.com/projects/" style="font-weight:700">live projects page →</a></p>
   </section>
 
-  <section style="background:#2172b8;color:#ffffff;text-align:center;padding:66px 24px">
-    <h2 style="font-family:Montserrat,sans-serif;font-size:32px;font-weight:800;margin:0 0 12px">Schedule An Appointment</h2>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px">
-      <a href="tel:8885099252" style="background:#ffc20e;color:#1a1a1a;padding:13px 28px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#e8ae00;color:#1a1a1a">(888) 509-9252</a>
-      <a href="Contact Us.dc.html" style="background:transparent;border:2px solid #ffffff;color:#ffffff;padding:11px 26px;border-radius:4px;font-weight:700;font-size:15px" style-hover="background:#ffffff;color:#16324f">Contact Us</a>
+  <section data-screen-label="Plan To Built" style="padding:90px 24px;max-width:1140px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;margin-bottom:20px">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;font-family:Jost,sans-serif;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#b9603a;font-weight:500;margin-bottom:14px"><span style="width:32px;height:1px;background:#b9603a;display:inline-block"></span>Plan → Built</div>
+        <h2 style="font-family:Jost,sans-serif;font-size:38px;font-weight:600;color:#1e2a35;margin:0;line-height:1.15">Drag to compare the drawing with the result.</h2>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
+          <button onClick="{{ f.pick }}" style="{{ f.style }}" style-hover="border-color:#b9603a;color:#b9603a">{{ f.label }}</button>
+        </sc-for>
+      </div>
     </div>
-    <div style="margin-top:16px;font-size:13.5px;opacity:0.85">If we miss your call, we'll text you back within minutes.</div>
+    <div style="font-size:13px;color:#857c70;margin-bottom:36px;display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:50%;background:#d9a441;display:inline-block"></span>{{ countLabel }}</div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 28px">
+      <sc-for list="{{ items }}" as="it" hint-placeholder-count="4">
+        <figure style="margin:0;display:flex;flex-direction:column;gap:14px">
+          <div style="position:relative;aspect-ratio:16/10;border-radius:3px;overflow:hidden;background:#1e2a35;user-select:none">
+            <div style="{{ it.photoStyle }}"></div>
+            <div style="{{ it.planStyle }}">
+              <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(30,42,53,0.12) 1px,transparent 1px),linear-gradient(90deg,rgba(30,42,53,0.12) 1px,transparent 1px);background-size:24px 24px"></div>
+              <div style="position:absolute;inset:18px;border:1px solid rgba(30,42,53,0.5)"></div>
+              <div style="position:absolute;inset:26px;border:1px solid rgba(30,42,53,0.25)"></div>
+              <div style="position:absolute;left:34px;top:30px;font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:0.08em;color:#1e2a35;line-height:1.7">PASQUINI ENGINEERING, INC.<br>SHEET S-1 · {{ it.sheet }}<br>SCALE 1/4" = 1'-0"</div>
+              <div style="position:absolute;left:0;right:0;bottom:36px;text-align:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:0.08em;color:#9a4c2d">[ engineering drawing — {{ it.type }} ]</div>
+            </div>
+            <div style="{{ it.handleStyle }}"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:#fbf9f5;border:1px solid #b9603a;display:flex;align-items:center;justify-content:center;font-size:13px;color:#b9603a;font-weight:700;box-shadow:0 4px 14px rgba(30,42,53,0.3)">⇔</div></div>
+            <div style="position:absolute;left:14px;bottom:12px;font-family:Jost,sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#1e2a35;background:rgba(251,249,245,0.9);padding:4px 8px;border-radius:2px;pointer-events:none">Plan</div>
+            <div style="position:absolute;right:14px;bottom:12px;font-family:Jost,sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#ffffff;background:rgba(30,42,53,0.75);padding:4px 8px;border-radius:2px;pointer-events:none">Built</div>
+            <input type="range" min="0" max="100" value="{{ it.pos }}" onChange="{{ it.onInput }}" onInput="{{ it.onInput }}" aria-label="Compare plan and built" style="position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize">
+          </div>
+          <figcaption style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start">
+            <div>
+              <div style="font-family:Jost,sans-serif;font-weight:600;color:#1e2a35;font-size:19px;margin-bottom:4px">{{ it.title }}</div>
+              <div style="font-size:14px;color:#857c70">{{ it.place }}</div>
+            </div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:50%">
+              <sc-for list="{{ it.tags }}" as="t" hint-placeholder-count="2">
+                <span style="border:1px solid #e3dccf;color:#3a3631;border-radius:2px;padding:3px 8px;font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;font-weight:600;white-space:nowrap">{{ t }}</span>
+              </sc-for>
+            </div>
+          </figcaption>
+        </figure>
+      </sc-for>
+    </div>
+    <p style="text-align:center;margin:44px 0 0;font-size:14.5px;color:#857c70">Drawings and project details shown as placeholders until final client materials arrive. More photos on the <a href="https://pasquiniengineering.com/projects/" style="font-weight:600">current gallery →</a></p>
+  </section>
+
+  <section data-screen-label="CTA" style="background-color:#1e2a35;background-image:linear-gradient(rgba(233,199,138,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(233,199,138,0.06) 1px,transparent 1px);background-size:48px 48px;color:#ffffff;text-align:center;padding:90px 24px;border-top:3px solid #b9603a">
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;font-family:Jost,sans-serif;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#e9c78a;font-weight:500;margin-bottom:16px"><span style="width:32px;height:1px;background:#d9a441;display:inline-block"></span>Your Project Next<span style="width:32px;height:1px;background:#d9a441;display:inline-block"></span></div>
+    <h2 style="font-family:Jost,sans-serif;font-size:42px;font-weight:600;margin:0 0 30px;line-height:1.1">Schedule An Appointment</h2>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="tel:6613289600" style="background:#d9a441;color:#1a1a1a;padding:15px 30px;border-radius:2px;font-weight:700;font-size:15.5px;font-family:Jost,sans-serif" style-hover="background:#c28f2e;color:#1a1a1a">(661) 328-9600</a>
+      <a href="Contact Us.dc.html" style="background:transparent;border:1px solid rgba(255,255,255,0.7);color:#ffffff;padding:14px 28px;border-radius:2px;font-weight:600;font-size:15.5px;font-family:Jost,sans-serif" style-hover="background:#ffffff;color:#1e2a35">Contact Us</a>
+    </div>
+    <div style="margin-top:20px;font-size:13.5px;color:#e9c78a">If we miss your call, we'll text you back within minutes.</div>
   </section>
 
   <dc-import name="Footer" hint-size="100%,420px"></dc-import>
@@ -45,5 +104,47 @@
   <dc-import name="StickyBar" hint-size="0px,0px"></dc-import>
 </div>
 </x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { filter: "All", pos: {} };
+  projects = [
+    { id: 1, title: "Two-Story Custom Home", place: "Bakersfield, California", cat: "Residential", tags: ["Design", "Structural"], sheet: "FOUNDATION & FRAMING", img: "https://pasquiniengineering.com/wp-content/uploads/2022/10/residental.jpg" },
+    { id: 2, title: "Retail Center Shell", place: "Central Valley, California", cat: "Commercial", tags: ["Civil", "Structural"], sheet: "SITE & GRADING", img: "https://pasquiniengineering.com/wp-content/uploads/2022/10/commercial-project-california-pasquini-engineering-1-1.jpg" },
+    { id: 3, title: "Warehouse & Yard", place: "Kern County, California", cat: "Industrial", tags: ["Civil", "Structural", "Survey"], sheet: "TILT-UP PANELS", img: "https://pasquiniengineering.com/wp-content/uploads/2022/10/industrial-project-california-pasquini-engineering-3-1.jpg" },
+    { id: 4, title: "Like-for-Like Fire Rebuild", place: "Altadena, California", cat: "Fire Rebuild", tags: ["Design", "Structural"], sheet: "REBUILD PLAN", img: null },
+    { id: 5, title: "Mixed-Use Development", place: "Southern California", cat: "Commercial", tags: ["Design", "Planning"], sheet: "ELEVATIONS", img: "https://pasquiniengineering.com/wp-content/uploads/2020/08/Commercial-8.jpg" },
+    { id: 6, title: "Detached ADU", place: "San Jose, California", cat: "Residential", tags: ["Design", "Structural"], sheet: "ADU PLAN", img: null },
+    { id: 7, title: "Hillside Residence", place: "Pacific Palisades, California", cat: "Fire Rebuild", tags: ["Civil", "Structural", "Survey"], sheet: "RETAINING WALLS", img: null },
+    { id: 8, title: "Office Building Design", place: "Sacramento, California", cat: "Commercial", tags: ["Design", "CPM"], sheet: "FLOOR PLAN", img: "https://pasquiniengineering.com/wp-content/uploads/2022/05/california-building-design-firm-pasquini-engineering.jpg" },
+    { id: 9, title: "Second-Story Addition", place: "Santa Rosa, California", cat: "Residential", tags: ["Structural"], sheet: "SHEAR WALL SCHEDULE", img: null },
+    { id: 10, title: "Processing Facility", place: "Central Coast, California", cat: "Industrial", tags: ["Civil", "CPM"], sheet: "UTILITY PLAN", img: "https://pasquiniengineering.com/wp-content/uploads/2020/09/construction-project-management-img.jpg" },
+    { id: 11, title: "Multi-Family Rebuild", place: "Paradise, California", cat: "Fire Rebuild", tags: ["Design", "Civil"], sheet: "SITE PLAN", img: null },
+    { id: 12, title: "Balcony Retrofit (SB 721)", place: "Long Beach, California", cat: "Residential", tags: ["Structural"], sheet: "DECK DETAILS", img: null }
+  ];
+  cats = ["All", "Residential", "Commercial", "Industrial", "Fire Rebuild"];
+  renderVals() {
+    const f = this.state.filter;
+    const list = this.projects.filter(p => f === "All" || p.cat === f);
+    const ph = "repeating-linear-gradient(135deg,#d6cdbd 0 10px,#e3dccf 10px 20px)";
+    return {
+      filters: this.cats.map(c => ({
+        label: c, pick: () => this.setState({ filter: c }),
+        style: `font-family:inherit;font-size:13px;font-weight:600;letter-spacing:0.04em;padding:8px 14px;border-radius:2px;cursor:pointer;transition:all .2s;${f === c ? "background:#1e2a35;color:#ffffff;border:1px solid #1e2a35" : "background:transparent;color:#3a3631;border:1px solid #d6cdbd"}`
+      })),
+      countLabel: `${list.length} project${list.length === 1 ? "" : "s"}${f === "All" ? "" : " · " + f} · drag the handle or hover to compare`,
+      items: list.map(p => {
+        const pos = this.state.pos[p.id] ?? 50;
+        return {
+          title: p.title, place: p.place, tags: p.tags, sheet: p.sheet, type: p.cat.toLowerCase(), pos,
+          photoStyle: `position:absolute;inset:0;background:${p.img ? `url('${p.img}') center/cover` : ph};display:flex;align-items:center;justify-content:center;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#857c70;letter-spacing:0.06em`,
+          planStyle: `position:absolute;inset:0;background:#f4efe6;clip-path:inset(0 ${100 - pos}% 0 0);transition:clip-path .05s linear`,
+          handleStyle: `position:absolute;top:0;bottom:0;left:${pos}%;width:2px;background:#b9603a;transform:translateX(-1px);pointer-events:none;transition:left .05s linear`,
+          onInput: e => this.setState(s => ({ pos: { ...s.pos, [p.id]: Number(e.target.value) } }))
+        };
+      })
+    };
+  }
+}
+</script>
 </body>
 </html>
