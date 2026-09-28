@@ -7,3 +7,5 @@ Pages: Home (index), About, Services, CRM, CRM-Login, Kern-County-CA, Sacramento
 Home `showPricing` sc-if block removed per Tyann.
 
 Live: https://tdcreatives1.github.io/client-previews/outsourced-administrative-services-llc/
+
+Link thumbnail (9.28.26): `og-image.png` (1200x630, logo on white) set as og:image/twitter:image on all public pages, so shared links show the logo instead of Paula's photo. Preview copy points og:image at the github.io URL; the production copy on oas-llc.com points it at `https://oas-llc.com/og-image.png`.
