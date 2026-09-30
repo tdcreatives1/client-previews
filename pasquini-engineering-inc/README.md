@@ -1,6 +1,6 @@
 # Pasquini Engineering — Site Preview
 
-Client/lead: Pasquini Engineering, Inc. Static preview delivered 9.5.26, updated 9.15.26 by [TD Creatives](https://tdcreativesagency.com).
+Client/lead: Pasquini Engineering, Inc. Static preview delivered 9.5.26, updated 9.15.26, SEO files added 9.30.26 by [TD Creatives](https://tdcreativesagency.com).
 
 Live: https://tdcreatives1.github.io/client-previews/pasquini-engineering-inc/
 
@@ -25,6 +25,12 @@ Live: https://tdcreatives1.github.io/client-previews/pasquini-engineering-inc/
 
 Shared pieces used by every page: `Header.dc.html`, `Footer.dc.html`, `ChatWidget.dc.html`,
 `StickyBar.dc.html`, and `support.js`. Don't rename these — the pages load them by name.
+
+## SEO files (9.30.26)
+
+`seo/robots.txt`, `seo/llms.txt`, `seo/ai.txt` are written for the production domain
+(pasquiniengineering.com). They do nothing inside this preview. At launch, upload all three to the **site root**
+(e.g. `https://pasquiniengineering.com/robots.txt`).
 
 ## Before go-live
 
