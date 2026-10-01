@@ -36,6 +36,7 @@ a{color:#1B2A55}
 a:hover{color:#A9822C}
 h1,h2,h3{font-family:Marcellus,'Times New Roman',Georgia,serif;font-weight:400;color:#14224F}
 input,textarea,select,button{font:inherit}
+@media (max-width:760px){.oas-sticky{position:static!important;top:auto!important}}
 </style>
 </helmet>
 
@@ -180,7 +181,7 @@ input,textarea,select,button{font:inherit}
 
   <section id="quote" style="background:#F4F0E4;border-top:1px solid #E7E1D4">
     <div style="max-width:1180px;margin:0 auto;padding:clamp(52px,6vw,88px) 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,60px);align-items:start">
-      <div style="position:sticky;top:96px">
+      <div class="oas-sticky" style="position:sticky;top:96px">
         <h2 style="margin:0 0 18px;font-size:clamp(27px,3vw,40px)">Tell her what needs handling</h2>
         <p style="margin:0 0 26px;font-size:17px;line-height:1.75;color:#4A4F60;max-width:48ch">Send a short description of the work and you will get a direct reply with a quote and a realistic timeline. No sales calls, no onboarding sequence.</p>
         <div style="display:grid;gap:12px;font-size:16.5px">
