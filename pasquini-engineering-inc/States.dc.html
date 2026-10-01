@@ -17,8 +17,8 @@
 
   <div style="background:#f4efe6;padding:12px 40px;font-size:13px"><a href="Home.dc.html">Home</a> <span style="color:#857c70">/</span> <a href="Service Areas.dc.html">Service Areas</a> <span style="color:#857c70">/</span> <span style="color:#1e2a35;font-weight:600">{{ name }}</span></div>
 
-  <section data-screen-label="State Hero" style="background:linear-gradient(rgba(30,42,53,0.82),rgba(30,42,53,0.82)),url('https://pasquiniengineering.com/wp-content/uploads/2022/10/commercial-project-california-pasquini-engineering-1-1.jpg') center/cover;color:#ffffff;padding:88px 24px;text-align:center">
-    <div style="animation:peFlyUp .7s cubic-bezier(.22,1,.36,1) 0s backwards;font-family:Jost,sans-serif;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#e9c78a;font-weight:700;margin-bottom:12px">Beyond California</div>
+  <section data-screen-label="State Hero" style="background:linear-gradient(rgba(30,42,53,0.82),rgba(30,42,53,0.82)),url('uploads/professional-engineering-services-pasquini-engineering-feature.jpg') center/cover;color:#ffffff;padding:88px 24px;text-align:center">
+    <div style="animation:peFlyUp .7s cubic-bezier(.22,1,.36,1) 0s backwards;font-family:Jost,sans-serif;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:#e9c78a;font-weight:700;margin-bottom:12px">{{ eyebrow }}</div>
     <h1 style="animation:peFlyUp .8s cubic-bezier(.22,1,.36,1) .15s backwards;font-family:Jost,sans-serif;font-size:44px;font-weight:600;margin:0 0 16px;line-height:1.2">Engineering Services In {{ name }}</h1>
     <p style="animation:peFlyUp .8s cubic-bezier(.22,1,.36,1) .3s backwards;max-width:680px;margin:0 auto 28px;font-size:17px;line-height:1.7;opacity:0.9">{{ tagline }}</p>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
@@ -33,7 +33,7 @@
       <div>
         <h2 style="font-family:Jost,sans-serif;font-size:30px;font-weight:600;color:#1e2a35;margin:0 0 18px">Full-Service Engineering, Wherever Your Project Is</h2>
         <p style="line-height:1.8;margin:0 0 14px">{{ intro }}</p>
-        <p style="line-height:1.8;margin:0">No matter where you are Pasquini Engineering, Inc. has you covered with completed jobs in California, Oregon, Washington, Nevada, Arizona, Hawaii, Alaska, and Texas. Plans are prepared in-house by our California team and coordinated with your local jurisdiction, builder, and plan checkers.</p>
+        <p style="line-height:1.8;margin:0">Pasquini Engineering, Inc. is licensed in Arizona, California, Colorado, Connecticut, Idaho, Nevada, Oregon, Texas, Virginia, and Washington. Plans are prepared in-house by our California team and coordinated with your local jurisdiction, builder, and plan checkers.</p>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px">
         <div style="position:relative;aspect-ratio:975/610;border:1px solid #e3dccf;background:#fbf9f5;border-radius:3px;overflow:hidden"><iframe src="projects-map.html" title="Map of states served by Pasquini Engineering, Inc." style="position:absolute;inset:0;width:100%;height:100%;border:0;background:transparent"></iframe></div>
@@ -84,7 +84,7 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   data = {
-    oregon: { name: "Oregon", tagline: "From Portland infill to coastal and high-desert builds, we deliver permit-ready structural, civil, and architectural plans for Oregon projects.", intro: "Oregon projects face seismic design requirements, wet-weather drainage, and jurisdiction-by-jurisdiction plan review. Our team prepares complete plan sets engineered to Oregon's adopted codes and your local amendments.", points: [
+    oregon: { name: "Oregon", tagline: "From Portland infill to coastal and high-desert builds, we deliver permit-ready structural, civil, and architectural engineering plans for Oregon projects.", intro: "Oregon projects face seismic design requirements, wet-weather drainage, and jurisdiction-by-jurisdiction plan review. Our team prepares complete plan sets engineered to Oregon's adopted codes and your local amendments.", points: [
       { h: "Residential & ADU Plans", t: "New homes, additions, remodels, and ADUs with complete structural calculations." },
       { h: "Seismic & Lateral Design", t: "Lateral systems engineered for Pacific Northwest seismic and wind loads." },
       { h: "Site & Drainage Design", t: "Grading and stormwater design suited to Oregon's wet-weather requirements." }
@@ -99,20 +99,35 @@ class Component extends DCLogic {
       { h: "Foundation Design", t: "Foundations engineered for desert soil conditions and local requirements." },
       { h: "Fast, Accurate Plan Sets", t: "Plans built to move through Clark County, Washoe County, and city review cleanly." }
     ]},
+    california: { name: "California", eyebrow: "Home State · Since 1990", tagline: "Headquartered in Bakersfield with offices statewide, we deliver permit-ready structural, civil, and architectural engineering plans for California projects of every scope.", intro: "California projects face some of the country's most demanding seismic, wildfire, and energy requirements. Our in-house team prepares complete plan sets to the California Building Code and coordinates directly with your city or county plan check.", points: [
+      { h: "Seismic & Structural Design", t: "Lateral systems and structural calculations engineered to California's seismic requirements." },
+      { h: "Fire Rebuilds & WUI Design", t: "Rebuild plan sets for fire-affected communities, detailed for wildland-urban interface codes." },
+      { h: "Residential, ADU & Commercial", t: "New homes, additions, ADUs, and commercial developments — designed and engineered under one roof." }
+    ]},
+    colorado: { name: "Colorado", tagline: "From the Front Range to mountain towns, we prepare permit-ready engineering plans built for Colorado's snow, wind, and soils.", intro: "Colorado projects call for heavy snow-load design, high-wind detailing, and foundations engineered for expansive soils. We deliver complete plan sets coordinated with your city or county building department.", points: [
+      { h: "Snow & Wind Loads", t: "Roof and lateral systems engineered for mountain snow and Front Range wind events." },
+      { h: "Expansive Soil Foundations", t: "Foundations designed for Colorado's swelling clays and variable site conditions." },
+      { h: "Residential & Commercial", t: "Custom homes, additions, and commercial projects with complete structural calculations." }
+    ]},
+    connecticut: { name: "Connecticut", tagline: "Engineering plans for Connecticut homes and commercial buildings — from shoreline properties to historic-town renovations.", intro: "Connecticut projects involve coastal wind and flood zones, snow loads, and older structures that need careful evaluation. Our team prepares complete, code-compliant plan sets coordinated with your local building official.", points: [
+      { h: "Coastal & Flood Zone Design", t: "Structures engineered for shoreline wind and flood-zone requirements." },
+      { h: "Renovations & Additions", t: "Structural evaluation and design for additions to existing and older homes." },
+      { h: "Permit-Ready Plan Sets", t: "Plans prepared to Connecticut's adopted codes and local amendments." }
+    ]},
+    idaho: { name: "Idaho", tagline: "Structural and civil engineering for Idaho's growing communities, from the Treasure Valley to mountain and rural parcels.", intro: "Idaho's growth brings new homes, shops, and land development to every corner of the state. We engineer plans for regional snow loads, seismic zones, and site conditions, and coordinate with your county or city review.", points: [
+      { h: "Custom Homes & Shops", t: "Building design and structural engineering for homes, garages, and outbuildings." },
+      { h: "Snow & Seismic Design", t: "Structural systems engineered for Idaho's snow loads and seismic regions." },
+      { h: "Land Development", t: "Grading, drainage, and site design for lots, subdivisions, and rural parcels." }
+    ]},
+    virginia: { name: "Virginia", tagline: "Permit-ready engineering for Virginia homes and commercial projects, from Northern Virginia to Hampton Roads.", intro: "Virginia projects range from coastal wind and flood design to infill and additions in established neighborhoods. Our in-house team delivers complete plan sets to Virginia's Uniform Statewide Building Code.", points: [
+      { h: "Residential & Additions", t: "New homes, additions, and remodels with complete structural calculations." },
+      { h: "Coastal Wind Design", t: "Structures engineered for Hampton Roads and Tidewater wind and flood requirements." },
+      { h: "Commercial Projects", t: "Engineering for commercial developments, tenant improvements, and site work." }
+    ]},
     arizona: { name: "Arizona", tagline: "From Phoenix metro to rural parcels, we prepare permit-ready engineering plans built for Arizona's codes and climate.", intro: "Arizona projects call for thermal design, monsoon drainage, and soils-aware foundations. Our in-house team handles the full plan set and coordinates with your county or municipal plan review.", points: [
       { h: "Custom Homes & Additions", t: "Building design and structural engineering for residential projects of every scope." },
       { h: "Monsoon Drainage", t: "Grading and drainage design for monsoon stormwater and desert washes." },
       { h: "Commercial Projects", t: "Engineering for commercial developments, from shell buildings to improvements." }
-    ]},
-    hawaii: { name: "Hawaii", tagline: "Island projects, mainland-caliber engineering — hurricane, seismic, and corrosion-conscious design for Hawaii builds.", intro: "Building in Hawaii means designing for hurricane wind loads, seismic activity, and a marine environment. We prepare complete plan sets engineered for island conditions and county plan review.", points: [
-      { h: "Hurricane Wind Design", t: "Structures engineered for high wind and uplift requirements." },
-      { h: "Residential & Ohana Units", t: "New homes, additions, and accessory dwellings designed for island living." },
-      { h: "County Plan Review", t: "Plans coordinated with Hawaii's county permitting processes." }
-    ]},
-    alaska: { name: "Alaska", tagline: "Engineering for the Last Frontier — snow, seismic, and cold-climate design for Alaska homes and structures.", intro: "Alaska projects demand heavy snow-load design, serious seismic engineering, and cold-climate detailing. Our team prepares complete, permit-ready plans engineered for those realities.", points: [
-      { h: "Snow & Seismic Design", t: "Structural systems engineered for extreme snow loads and seismic zones." },
-      { h: "Cold-Climate Detailing", t: "Foundations and envelopes designed for frost depth and freeze-thaw conditions." },
-      { h: "Remote-Site Projects", t: "Plans prepared remotely and coordinated with local jurisdictions and builders." }
     ]},
     texas: { name: "Texas", tagline: "Big-state engineering support — residential and commercial plan sets for Texas projects, from metro infill to rural builds.", intro: "From expansive clay soils to hurricane wind zones on the coast, Texas projects have their own engineering demands. We deliver complete, code-compliant plan sets coordinated with your city or county.", points: [
       { h: "Expansive Soil Foundations", t: "Slab and pier-and-beam foundations engineered for Texas clay soils." },
@@ -128,9 +143,9 @@ class Component extends DCLogic {
   renderVals() {
     const key = (location.hash || "#oregon").slice(1).toLowerCase();
     const s = this.data[key] || this.data.oregon;
-    const others = Object.keys(this.data).filter(k => this.data[k] !== s)
+    const others = Object.keys(this.data).sort().filter(k => this.data[k] !== s)
       .map(k => ({ label: this.data[k].name, href: "#" + k }));
-    return { name: s.name, tagline: s.tagline, intro: s.intro, points: s.points.map(p => ({ h: p.h, t: p.t })), others };
+    return { eyebrow: s.eyebrow || "Licensed In " + s.name, name: s.name, tagline: s.tagline, intro: s.intro, points: s.points.map(p => ({ h: p.h, t: p.t })), others };
   }
 }
 </script>

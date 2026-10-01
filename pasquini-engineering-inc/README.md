@@ -1,6 +1,6 @@
 # Pasquini Engineering — Site Preview
 
-Client/lead: Pasquini Engineering, Inc. Static preview delivered 9.5.26, updated 9.15.26, SEO files added 9.30.26 by [TD Creatives](https://tdcreativesagency.com).
+Client/lead: Pasquini Engineering, Inc. Static preview delivered 9.5.26, updated 9.15.26 and 9.30.26 by [TD Creatives](https://tdcreativesagency.com).
 
 Live: https://tdcreatives1.github.io/client-previews/pasquini-engineering-inc/
 
@@ -21,7 +21,7 @@ Live: https://tdcreatives1.github.io/client-previews/pasquini-engineering-inc/
 | Altadena | `Altadena.dc.html` |
 | Pacific Palisades | `Pacific Palisades.dc.html` |
 | Other CA areas | `Areas.dc.html#santa-rosa`, `#paradise`, `#central-coast` |
-| Other states | `States.dc.html#oregon`, `#washington`, `#nevada`, `#arizona`, `#hawaii`, `#alaska`, `#texas` |
+| Other states | `States.dc.html#arizona`, `#california`, `#colorado`, `#connecticut`, `#idaho`, `#nevada`, `#oregon`, `#texas`, `#virginia`, `#washington` |
 
 Shared pieces used by every page: `Header.dc.html`, `Footer.dc.html`, `ChatWidget.dc.html`,
 `StickyBar.dc.html`, and `support.js`. Don't rename these — the pages load them by name.

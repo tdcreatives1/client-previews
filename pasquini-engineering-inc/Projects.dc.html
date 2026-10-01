@@ -108,18 +108,16 @@
 class Component extends DCLogic {
   state = { filter: "All", pos: {} };
   projects = [
-    { id: 1, title: "Two-Story Custom Home", place: "Bakersfield, California", cat: "Residential", tags: ["Design", "Structural"], sheet: "FOUNDATION & FRAMING", img: "https://pasquiniengineering.com/wp-content/uploads/2022/10/residental.jpg" },
+    { id: 1, title: "Custom Home", place: "Bakersfield, California", cat: "Residential", tags: ["Design", "Structural"], sheet: "FOUNDATION & FRAMING", img: "uploads/professional-engineering-services-pasquini-engineering-article-7.jpg" },
     { id: 2, title: "Retail Center Shell", place: "Central Valley, California", cat: "Commercial", tags: ["Civil", "Structural"], sheet: "SITE & GRADING", img: "https://pasquiniengineering.com/wp-content/uploads/2022/10/commercial-project-california-pasquini-engineering-1-1.jpg" },
     { id: 3, title: "Warehouse & Yard", place: "Kern County, California", cat: "Industrial", tags: ["Civil", "Structural", "Survey"], sheet: "TILT-UP PANELS", img: "https://pasquiniengineering.com/wp-content/uploads/2022/10/industrial-project-california-pasquini-engineering-3-1.jpg" },
-    { id: 4, title: "Like-for-Like Fire Rebuild", place: "Altadena, California", cat: "Fire Rebuild", tags: ["Design", "Structural"], sheet: "REBUILD PLAN", img: null },
+    { id: 4, title: "Like-for-Like Fire Rebuild", place: "Pacific Palisades, California", cat: "Fire Rebuild", tags: ["Design", "Structural"], sheet: "REBUILD PLAN", img: "uploads/pacific-palisades-spec-build-pasquini-engineering-2.png" },
     { id: 5, title: "Mixed-Use Development", place: "Southern California", cat: "Commercial", tags: ["Design", "Planning"], sheet: "ELEVATIONS", img: "https://pasquiniengineering.com/wp-content/uploads/2020/08/Commercial-8.jpg" },
-    { id: 6, title: "Detached ADU", place: "San Jose, California", cat: "Residential", tags: ["Design", "Structural"], sheet: "ADU PLAN", img: null },
-    { id: 7, title: "Hillside Residence", place: "Pacific Palisades, California", cat: "Fire Rebuild", tags: ["Civil", "Structural", "Survey"], sheet: "RETAINING WALLS", img: null },
-    { id: 8, title: "Office Building Design", place: "Sacramento, California", cat: "Commercial", tags: ["Design", "CPM"], sheet: "FLOOR PLAN", img: "https://pasquiniengineering.com/wp-content/uploads/2022/05/california-building-design-firm-pasquini-engineering.jpg" },
-    { id: 9, title: "Second-Story Addition", place: "Santa Rosa, California", cat: "Residential", tags: ["Structural"], sheet: "SHEAR WALL SCHEDULE", img: null },
-    { id: 10, title: "Processing Facility", place: "Central Coast, California", cat: "Industrial", tags: ["Civil", "CPM"], sheet: "UTILITY PLAN", img: "https://pasquiniengineering.com/wp-content/uploads/2020/09/construction-project-management-img.jpg" },
-    { id: 11, title: "Multi-Family Rebuild", place: "Paradise, California", cat: "Fire Rebuild", tags: ["Design", "Civil"], sheet: "SITE PLAN", img: null },
-    { id: 12, title: "Balcony Retrofit (SB 721)", place: "Long Beach, California", cat: "Residential", tags: ["Structural"], sheet: "DECK DETAILS", img: null }
+    { id: 6, title: "Detached ADU", place: "San Jose, California", cat: "Residential", tags: ["Design", "Structural"], sheet: "ADU PLAN", img: "uploads/20210302_093004.jpg" },
+    { id: 7, title: "Hillside Residence", place: "Santa Rosa, California", cat: "Fire Rebuild", tags: ["Civil", "Structural", "Survey"], sheet: "RETAINING WALLS", img: "uploads/civil-engineering-projects-pasquini-engineering-feature.jpg" },
+    { id: 8, title: "Office Building Design", place: "Bakersfield, California", cat: "Commercial", tags: ["Design", "CPM"], sheet: "FLOOR PLAN", img: "uploads/commercial-building-renovations-pasquini-engineering-article.jpg" },
+    { id: 9, title: "Second-Story Addition", place: "Santa Rosa, California", cat: "Residential", tags: ["Structural"], sheet: "SHEAR WALL SCHEDULE", img: "https://pasquiniengineering.com/wp-content/uploads/2022/05/california-building-design-firm-pasquini-engineering.jpg" },
+    { id: 11, title: "Multi-Family Rebuild", place: "Paradise, California", cat: "Fire Rebuild", tags: ["Design", "Civil"], sheet: "SITE PLAN", img: "uploads/SB1211-transforming-california-housing-pasquini-engineering-feature-6500c8f3.jpg" },
   ];
   cats = ["All", "Residential", "Commercial", "Industrial", "Fire Rebuild"];
   renderVals() {
