@@ -18,7 +18,17 @@ svg{width:100%;height:100%;display:block}
 <div class="tip" id="tip"></div>
 <svg id="map" viewBox="0 0 975 610" preserveAspectRatio="xMidYMid meet"></svg>
 <script>
-const SERVED = new Set(['04','06','08','09','16','32','41','48','51','53']); // AZ CA CO CT ID NV OR TX VA WA
+function placeTip(tip, e) {
+  const w = tip.offsetWidth, h = tip.offsetHeight, W = innerWidth, H = innerHeight;
+  let x = e.clientX + 14, y = e.clientY - 10;
+  if (x + w > W - 6) x = e.clientX - w - 14;
+  if (x < 6) x = 6;
+  if (y + h > H - 6) y = H - h - 6;
+  if (y < 6) y = 6;
+  tip.style.left = x + 'px'; tip.style.top = y + 'px';
+}
+const SERVED = new Set(['04','06','08','09','16','32','41','48','53']); // AZ CA CO CT ID NV OR TX WA
+const OTHER = new Set(['51','15','02']); // VA HI AK: completed under another licensed professional
 const PINS = [
   ['Bakersfield, CA','Headquarters · since 1990',-119.0187,35.3733,1],
   ['Altadena, CA','Eaton Fire rebuilds',-118.1312,34.1897,1],
@@ -32,13 +42,17 @@ const PINS = [
   ['San Jose, CA','',-121.8863,37.3382,0],
   ['Portland, OR','',-122.6765,45.5231,0],
   ['Seattle, WA','',-122.3321,47.6062,0],
+  ['Bellingham, WA','',-122.4787,48.7519,0],
+  ['Yakima, WA','',-120.5059,46.6021,0],
   ['Las Vegas, NV','',-115.1398,36.1699,0],
   ['Phoenix, AZ','',-112.0740,33.4484,0],
+  ['Lake Havasu City, AZ','',-114.3225,34.4839,0],
   ['Austin, TX','',-97.7431,30.2672,0],
   ['Denver, CO','',-104.9903,39.7392,0],
   ['Boise, ID','',-116.2023,43.6150,0],
   ['Hartford, CT','',-72.6851,41.7658,0],
   ['Richmond, VA','',-77.4360,37.5407,0],
+  ['Ketchikan, AK','',-131.6461,55.3422,0],
 ];
 (async () => {
   const us = await (await fetch('https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/states-10m.json')).json();
@@ -48,19 +62,34 @@ const PINS = [
   const svg = d3.select('#map');
   svg.append('g').selectAll('path').data(states.features).join('path')
     .attr('d', path)
-    .attr('fill', d => SERVED.has(d.id) ? '#e7c9a6' : '#efe9de')
+    .attr('fill', d => SERVED.has(d.id) ? '#e7c9a6' : OTHER.has(d.id) ? '#c9d2da' : '#efe9de')
     .attr('stroke', '#fbf9f5').attr('stroke-width', 1);
   svg.append('path').datum(topojson.mesh(us, us.objects.states, (a, b) => a !== b)).attr('d', path).attr('fill', 'none').attr('stroke', '#fbf9f5').attr('stroke-width', 1);
   // state labels for served states
-  const NAMES = {'04':'AZ','06':'CA','08':'CO','09':'CT','16':'ID','32':'NV','41':'OR','48':'TX','51':'VA','53':'WA'};
-  svg.append('g').selectAll('text').data(states.features.filter(d => SERVED.has(d.id))).join('text')
+  const NAMES = {'04':'AZ','06':'CA','08':'CO','09':'CT','16':'ID','32':'NV','41':'OR','48':'TX','51':'VA','53':'WA','15':'HI','02':'AK'};
+  svg.append('g').selectAll('text').data(states.features.filter(d => SERVED.has(d.id) || OTHER.has(d.id))).join('text')
     .attr('transform', d => { const c = path.centroid(d); if (d.id === '06') { c[0] -= 30; c[1] -= 20; } return `translate(${c[0]},${c[1]})`; })
-    .attr('text-anchor', 'middle').attr('font-family', 'Jost, sans-serif').attr('font-size', 13).attr('font-weight', 600).attr('fill', '#9a4c2d').attr('letter-spacing', '0.12em').text(d => NAMES[d.id]);
+    .attr('text-anchor', 'middle').attr('font-family', 'Jost, sans-serif').attr('font-size', 13).attr('font-weight', 600).attr('fill', '#9a4c2d').attr('letter-spacing', '0.12em').attr('fill', d => OTHER.has(d.id) ? '#4a5a68' : '#9a4c2d').text(d => NAMES[d.id]);
+  const tip0 = document.getElementById('tip');
+  const showTip = (e, h) => { tip0.innerHTML = h; tip0.style.opacity = 1; placeTip(tip0, e); };
+  // Japan inset
+  try {
+    const w = await (await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json')).json();
+    const jp = topojson.feature(w, w.objects.countries).features.find(f => f.id === '392');
+    const box = [[858, 462], [962, 596]];
+    const ig = svg.append('g').style('cursor', 'pointer')
+      .on('mousemove', e => showTip(e, '<b>Japan</b>Consulted on · completed under another licensed designer'))
+      .on('mouseleave', () => { tip0.style.opacity = 0; });
+    ig.append('rect').attr('x', box[0][0]).attr('y', box[0][1]).attr('width', box[1][0] - box[0][0]).attr('height', box[1][1] - box[0][1]).attr('fill', '#fbf9f5').attr('stroke', '#d8cfc0').attr('stroke-dasharray', '3 3');
+    const jproj = d3.geoMercator().fitExtent([[box[0][0] + 10, box[0][1] + 24], [box[1][0] - 10, box[1][1] - 10]], jp);
+    ig.append('path').datum(jp).attr('d', d3.geoPath(jproj)).attr('fill', '#c9d2da').attr('stroke', '#fbf9f5').attr('stroke-width', 0.6);
+    ig.append('text').attr('x', box[0][0] + 10).attr('y', box[0][1] + 16).attr('font-family', 'Jost, sans-serif').attr('font-size', 11).attr('font-weight', 600).attr('letter-spacing', '0.14em').attr('fill', '#4a5a68').text('JAPAN');
+  } catch (err) {}
   const tip = document.getElementById('tip');
   const g = svg.append('g').selectAll('g').data(PINS.filter(p => proj([p[2], p[3]]))).join('g')
     .attr('transform', p => { const [x, y] = proj([p[2], p[3]]); return `translate(${x},${y})`; })
     .style('cursor', 'pointer')
-    .on('mousemove', (e, p) => { tip.innerHTML = `<b>${p[0]}</b>${p[1] || 'Completed projects'}`; tip.style.opacity = 1; tip.style.left = (e.clientX + 14) + 'px'; tip.style.top = (e.clientY - 10) + 'px'; })
+    .on('mousemove', (e, p) => { tip.innerHTML = `<b>${p[0]}</b>${p[1] || 'Completed projects'}`; tip.style.opacity = 1; placeTip(tip, e); })
     .on('mouseleave', () => { tip.style.opacity = 0; });
   g.filter(p => p[4]).append('circle').attr('class', 'pulse').attr('r', 6);
   g.filter(p => p[4]).append('circle').attr('class', 'pulse').attr('r', 6).style('animation-delay', '1.2s');
