@@ -1,0 +1,19 @@
+{
+  "name": "Pasquini Engineering, Inc.",
+  "short_name": "Pasquini",
+  "icons": [
+    {
+      "src": "/client-previews/pasquini-engineering-inc/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/client-previews/pasquini-engineering-inc/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#1e2a35",
+  "background_color": "#fbf9f5",
+  "display": "browser"
+}

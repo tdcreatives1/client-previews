@@ -1,42 +1,20 @@
 # Pasquini Engineering — Site Preview
 
-Client/lead: Pasquini Engineering, Inc. Static preview delivered 9.5.26, updated 9.15.26, 9.30.26 and 10.12.26 by [TD Creatives](https://tdcreativesagency.com).
+Client/lead: Pasquini Engineering, Inc. Preview by [TD Creatives](https://tdcreativesagency.com). Delivered 9.5.26, updated 9.15.26, 9.30.26, 10.12.26 and 10.14.26 (production export).
 
-Live: https://tdcreatives1.github.io/client-previews/pasquini-engineering-inc/
+Live preview: https://tdcreatives1.github.io/client-previews/pasquini-engineering-inc/
 
-`index.html` is a copy of `Home.dc.html` (entry point).
+## About this folder (10.14.26)
 
-## Pages
+This is the Hostinger production export (`hostinger/` in the zip) with one preview-only change:
+every root-relative path (`/assets/...`, `/about-us/`) is prefixed with
+`/client-previews/pasquini-engineering-inc/` so it works on GitHub Pages.
+**Do not deploy this folder.** Deploy the original zip's `hostinger/` folder (see `DEPLOY-README.md`
+for the steps, URL map and page list).
 
-| Page | File |
-| --- | --- |
-| Home | `Home.dc.html` |
-| About Us | `About Us.dc.html` |
-| Our Services | `Our Services.dc.html` |
-| Service landing pages | `Service.dc.html#civil-engineering`, `#structural-engineering`, `#building-design`, `#construction-project-management`, `#planning-services`, `#surveying` |
-| Projects | `Projects.dc.html` |
-| Blog | `Blog.dc.html` |
-| Contact Us | `Contact Us.dc.html` |
-| Service Areas (hub) | `Service Areas.dc.html` |
-| Altadena | `Altadena.dc.html` |
-| Pacific Palisades | `Pacific Palisades.dc.html` |
-| Other CA areas | `Areas.dc.html#santa-rosa`, `#paradise`, `#central-coast` |
-| Other states | `States.dc.html#arizona`, `#california`, `#colorado`, `#connecticut`, `#idaho`, `#nevada`, `#oregon`, `#texas`, `#virginia`, `#washington` |
+Added here: `assets/images/pasquini-engineering-logo.png` and
+`assets/images/california-building-design-firm-pasquini-engineering.jpg`, recovered from the Wayback Machine.
+Copy them into the production package too.
 
-Shared pieces used by every page: `Header.dc.html`, `Footer.dc.html`, `ChatWidget.dc.html`,
-`StickyBar.dc.html`, and `support.js`. Don't rename these — the pages load them by name.
-
-## SEO files (9.30.26)
-
-`seo/robots.txt`, `seo/llms.txt`, `seo/ai.txt` are written for the production domain
-(pasquiniengineering.com). They do nothing inside this preview. At launch, upload all three to the **site root**
-(e.g. `https://pasquiniengineering.com/robots.txt`).
-
-## Before go-live
-
-- **Chat widget:** `ChatWidget.dc.html` is a visual mock. Replace it with your GoHighLevel
-  embed script (`widgets.leadconnectorhq.com`) placed before `</body>`.
-- **Missed-call text-back:** configured inside GoHighLevel; the site copy advertises it.
-- **Client Reviews:** embed your Google reviews widget where the placeholder sits.
-- Most photography still loads from `pasquiniengineering.com`; the hero and team photos
-  are local in `uploads/`.
+Preview limitations: the chat form posts to `api/lead.php` (PHP doesn't run on GitHub Pages, so it shows the
+call/text fallback). `.htaccess` redirects do nothing here. Old blog posts and `/privacy-policy/` don't exist as static pages.

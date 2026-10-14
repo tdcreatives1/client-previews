@@ -1,0 +1,139 @@
+# Pasquini Engineering, Inc. — Hostinger (LiteSpeed/Apache)
+Options -Indexes
+DirectoryIndex index.html index.php
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# 1. Force HTTPS and non-www (canonical host: pasquiniengineering.com)
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://pasquiniengineering.com/$1 [R=301,L,NE]
+
+# 2. Add trailing slash to clean URLs (folders)
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+# 3. 301 redirects: old WordPress URLs that were renamed or removed
+RewriteRule ^about-us/our-team/?$ /about-us/ [R=301,L]
+RewriteRule ^testimonials/?$ /about-us/ [R=301,L]
+RewriteRule ^california-architectural-engineering-services/?$ /our-services/ [R=301,L]
+RewriteRule ^pacific-palisades/?$ /pacific-palisades-fire-rebuild/ [R=301,L]
+RewriteRule ^altadena/?$ /altadena-civil-engineering-services/ [R=301,L]
+RewriteRule ^services/?$ /our-services/ [R=301,L]
+RewriteRule ^states/?$ /service-areas/ [R=301,L]
+RewriteRule ^areas/?$ /service-areas/ [R=301,L]
+
+# 4. 301 redirects: interim preview/package URLs (.html / .dc.html)
+RewriteRule ^Home\.dc\.html$ / [R=301,L,NC]
+RewriteRule ^About(?:%20|\s)Us\.dc\.html$ /about-us/ [R=301,L,NC]
+RewriteRule ^Our(?:%20|\s)Services\.dc\.html$ /our-services/ [R=301,L,NC]
+RewriteRule ^Service(?:%20|\s)Areas\.dc\.html$ /service-areas/ [R=301,L,NC]
+RewriteRule ^Projects\.dc\.html$ /projects/ [R=301,L,NC]
+RewriteRule ^Blog\.dc\.html$ /blog/ [R=301,L,NC]
+RewriteRule ^Contact(?:%20|\s)Us\.dc\.html$ /contact-us/ [R=301,L,NC]
+RewriteRule ^Altadena\.dc\.html$ /altadena-civil-engineering-services/ [R=301,L,NC]
+RewriteRule ^Pacific(?:%20|\s)Palisades\.dc\.html$ /pacific-palisades-fire-rebuild/ [R=301,L,NC]
+RewriteRule ^Service\.dc\.html$ /our-services/ [R=301,L,NC]
+RewriteRule ^States\.dc\.html$ /service-areas/ [R=301,L,NC]
+RewriteRule ^Areas\.dc\.html$ /service-areas/ [R=301,L,NC]
+RewriteRule ^about-us\.html$ /about-us/ [R=301,L]
+RewriteRule ^our-services\.html$ /our-services/ [R=301,L]
+RewriteRule ^service-areas\.html$ /service-areas/ [R=301,L]
+RewriteRule ^projects\.html$ /projects/ [R=301,L]
+RewriteRule ^blog\.html$ /blog/ [R=301,L]
+RewriteRule ^contact-us\.html$ /contact-us/ [R=301,L]
+RewriteRule ^altadena\.html$ /altadena-civil-engineering-services/ [R=301,L]
+RewriteRule ^pacific-palisades\.html$ /pacific-palisades-fire-rebuild/ [R=301,L]
+RewriteRule ^services/civil-engineering\.html$ /california-civil-engineering-services/ [R=301,L]
+RewriteRule ^services/structural-engineering\.html$ /california-structural-engineering-services/ [R=301,L]
+RewriteRule ^services/building-design\.html$ /california-building-design-firm/ [R=301,L]
+RewriteRule ^services/construction-project-management\.html$ /our-services/construction-project-management/ [R=301,L]
+RewriteRule ^services/planning-services\.html$ /our-services/planning-services/ [R=301,L]
+RewriteRule ^services/surveying\.html$ /our-services/surveying/ [R=301,L]
+RewriteRule ^areas/santa-rosa\.html$ /service-areas/santa-rosa/ [R=301,L]
+RewriteRule ^areas/paradise\.html$ /service-areas/paradise/ [R=301,L]
+RewriteRule ^areas/central-coast\.html$ /service-areas/central-coast/ [R=301,L]
+RewriteRule ^states/arizona\.html$ /service-areas/arizona/ [R=301,L]
+RewriteRule ^states/california\.html$ /service-areas/california/ [R=301,L]
+RewriteRule ^states/colorado\.html$ /service-areas/colorado/ [R=301,L]
+RewriteRule ^states/connecticut\.html$ /service-areas/connecticut/ [R=301,L]
+RewriteRule ^states/idaho\.html$ /service-areas/idaho/ [R=301,L]
+RewriteRule ^states/nevada\.html$ /service-areas/nevada/ [R=301,L]
+RewriteRule ^states/oregon\.html$ /service-areas/oregon/ [R=301,L]
+RewriteRule ^states/texas\.html$ /service-areas/texas/ [R=301,L]
+RewriteRule ^states/virginia\.html$ /service-areas/virginia/ [R=301,L]
+RewriteRule ^states/washington\.html$ /service-areas/washington/ [R=301,L]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# 5. Images not yet copied into /assets/images/ fall back to the WordPress uploads
+#    folder (remove each line once its file is in /assets/images/)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^assets/images/pasquini-engineering-logo\.png$ /wp-content/uploads/2020/08/pe-nav-logo@2x.png [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^assets/images/image006\.jpg$ /wp-content/uploads/2023/11/image006.jpg [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^assets/images/residental\.jpg$ /wp-content/uploads/2022/10/residental.jpg [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^assets/images/commercial-project-california-pasquini-engineering-1-1\.jpg$ /wp-content/uploads/2022/10/commercial-project-california-pasquini-engineering-1-1.jpg [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^assets/images/industrial-project-california-pasquini-engineering-3-1\.jpg$ /wp-content/uploads/2022/10/industrial-project-california-pasquini-engineering-3-1.jpg [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^assets/images/homeowners-recovery-guide-fire-damage-pasquini-engineering-feature-400x250\.jpg$ /wp-content/uploads/2026/08/homeowners-recovery-guide-fire-damage-pasquini-engineering-feature-400x250.jpg [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^assets/images/building-fails-sb-721-inspection-pasquini-engineering-feature-400x250\.jpg$ /wp-content/uploads/2026/06/building-fails-SB-721-inspection-pasquini-engineering-feature-400x250.jpg [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^assets/images/multi-family-construction-california-pasquini-engineering-feature-400x250\.jpg$ /wp-content/uploads/2026/06/multi-family-construction-california-pasquini-engineering-feature-400x250.jpg [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^assets/images/california-building-design-firm-pasquini-engineering\.jpg$ /wp-content/uploads/2022/05/california-building-design-firm-pasquini-engineering.jpg [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^assets/images/commercial-8\.jpg$ /wp-content/uploads/2020/08/Commercial-8.jpg [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^assets/images/professional-engineering-services-pasquini-engineering-article-2\.jpg$ /wp-content/uploads/2024/04/professional-engineering-services-pasquini-engineering-article-2.jpg [L]
+
+# 6. Old blog posts and other WordPress pages without a new static page keep
+#    working through WordPress while it is still installed. Delete this block
+#    after the posts are rebuilt as static pages.
+RewriteCond %{DOCUMENT_ROOT}/wp-blog-header.php -f
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# Block direct access to dotfiles and docs
+<FilesMatch "^\.|\.(md|json\.bak)$">
+  Require all denied
+</FilesMatch>
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+# Caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+AddType font/woff2 .woff2
+AddType application/manifest+json .webmanifest
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  <FilesMatch "\.(woff2)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
