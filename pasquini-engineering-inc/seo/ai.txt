@@ -1,5 +1,5 @@
 # AI Usage Policy for pasquiniengineering.com
-# Generated: 2026-09-30
+# Generated: 2026-10-13
 # Spec: https://spawning.ai/ai-txt (reference)
 
 Site: https://pasquiniengineering.com
