@@ -1,10 +1,10 @@
 # Pasquini Engineering — Site Preview
 
-Client/lead: Pasquini Engineering, Inc. Preview by [TD Creatives](https://tdcreativesagency.com). Delivered 9.5.26, updated 9.15.26, 9.30.26, 10.12.26 and 10.14.26 (production export).
+Client/lead: Pasquini Engineering, Inc. Preview by [TD Creatives](https://tdcreativesagency.com). Delivered 9.5.26, updated 9.15.26, 9.30.26, 10.12.26, 10.14.26 and 10.16.26 (production export v3).
 
 Live preview: https://tdcreatives1.github.io/client-previews/pasquini-engineering-inc/
 
-## About this folder (10.14.26)
+## About this folder (10.16.26)
 
 This is the Hostinger production export (`hostinger/` in the zip) with one preview-only change:
 every root-relative path (`/assets/...`, `/about-us/`) is prefixed with
@@ -16,5 +16,5 @@ Added here: `assets/images/pasquini-engineering-logo.png` and
 `assets/images/california-building-design-firm-pasquini-engineering.jpg`, recovered from the Wayback Machine.
 Copy them into the production package too.
 
-Preview limitations: the chat form posts to `api/lead.php` (PHP doesn't run on GitHub Pages, so it shows the
-call/text fallback). `.htaccess` redirects do nothing here. Old blog posts and `/privacy-policy/` don't exist as static pages.
+Preview limitations: chat is the GoHighLevel widget (loads from leadconnectorhq.com). `.htaccess` redirects do
+nothing on GitHub Pages. The 3 blog posts were written from scratch — client should review before publishing.

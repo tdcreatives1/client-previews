@@ -3,12 +3,12 @@
   "short_name": "Pasquini",
   "icons": [
     {
-      "src": "/client-previews/pasquini-engineering-inc/apple-touch-icon.png",
+      "src": "/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "/client-previews/pasquini-engineering-inc/android-chrome-512x512.png",
+      "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

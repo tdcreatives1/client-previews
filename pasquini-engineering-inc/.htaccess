@@ -68,38 +68,20 @@ RewriteRule ^states/virginia\.html$ /service-areas/virginia/ [R=301,L]
 RewriteRule ^states/washington\.html$ /service-areas/washington/ [R=301,L]
 RewriteRule ^index\.html$ / [R=301,L]
 
-# 5. Images not yet copied into /assets/images/ fall back to the WordPress uploads
-#    folder (remove each line once its file is in /assets/images/)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^assets/images/pasquini-engineering-logo\.png$ /wp-content/uploads/2020/08/pe-nav-logo@2x.png [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^assets/images/image006\.jpg$ /wp-content/uploads/2023/11/image006.jpg [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^assets/images/residental\.jpg$ /wp-content/uploads/2022/10/residental.jpg [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^assets/images/commercial-project-california-pasquini-engineering-1-1\.jpg$ /wp-content/uploads/2022/10/commercial-project-california-pasquini-engineering-1-1.jpg [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^assets/images/industrial-project-california-pasquini-engineering-3-1\.jpg$ /wp-content/uploads/2022/10/industrial-project-california-pasquini-engineering-3-1.jpg [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^assets/images/homeowners-recovery-guide-fire-damage-pasquini-engineering-feature-400x250\.jpg$ /wp-content/uploads/2026/08/homeowners-recovery-guide-fire-damage-pasquini-engineering-feature-400x250.jpg [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^assets/images/building-fails-sb-721-inspection-pasquini-engineering-feature-400x250\.jpg$ /wp-content/uploads/2026/06/building-fails-SB-721-inspection-pasquini-engineering-feature-400x250.jpg [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^assets/images/multi-family-construction-california-pasquini-engineering-feature-400x250\.jpg$ /wp-content/uploads/2026/06/multi-family-construction-california-pasquini-engineering-feature-400x250.jpg [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^assets/images/california-building-design-firm-pasquini-engineering\.jpg$ /wp-content/uploads/2022/05/california-building-design-firm-pasquini-engineering.jpg [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^assets/images/commercial-8\.jpg$ /wp-content/uploads/2020/08/Commercial-8.jpg [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^assets/images/professional-engineering-services-pasquini-engineering-article-2\.jpg$ /wp-content/uploads/2024/04/professional-engineering-services-pasquini-engineering-article-2.jpg [L]
-
-# 6. Old blog posts and other WordPress pages without a new static page keep
-#    working through WordPress while it is still installed. Delete this block
-#    after the posts are rebuilt as static pages.
-RewriteCond %{DOCUMENT_ROOT}/wp-blog-header.php -f
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
+# 5. 301 redirects: other old WordPress URLs with no static page
+RewriteRule ^blog/category/[^/]+/?$ /blog/ [R=301,L]
+RewriteRule ^blog/tag/[^/]+/?$ /blog/ [R=301,L]
+RewriteRule ^blog/page/\d+/?$ /blog/ [R=301,L]
+RewriteRule ^blog/[^/]+/(homeowners-guide-to-fire-damage-and-structural-risks|if-building-fails-an-sb-721-inspection|multi-family-construction-strategies-california)/?$ /blog/$1/ [R=301,L]
+RewriteRule ^(category|tag|author)/[^/]+/?$ /blog/ [R=301,L]
+RewriteRule ^\d{4}/\d{2}(/\d{2})?/?$ /blog/ [R=301,L]
+RewriteRule ^feed/?$ /blog/ [R=301,L]
+RewriteRule ^blog/feed/?$ /blog/ [R=301,L]
+RewriteRule ^(wp-login\.php|wp-admin/?.*|xmlrpc\.php)$ / [R=301,L]
+RewriteRule ^wp-content/uploads/.*/pe-nav-logo@2x\.png$ /assets/images/pasquini-engineering-logo.png [R=301,L]
+RewriteRule ^wp-content/.*$ / [R=301,L]
+RewriteRule ^sitemap_index\.xml$ /sitemap.xml [R=301,L]
+RewriteRule ^(page|post)-sitemap\.xml$ /sitemap.xml [R=301,L]
 </IfModule>
 
 # Block direct access to dotfiles and docs

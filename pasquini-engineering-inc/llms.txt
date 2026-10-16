@@ -2,7 +2,7 @@
 
 > Full-service civil, structural, and architectural engineering and building design firm serving homeowners and contractors across California since 1990.
 
-With 30+ years and 9,000+ projects, all plans are prepared in-house for permit. Pasquini Engineering is licensed in Arizona, California, Colorado, Connecticut, Idaho, Nevada, Oregon, Texas, and Washington, with California offices in Bakersfield, Santa Rosa, Sacramento, San Jose, Paradise, the Central Coast, Central Valley, Long Beach, and Southern California.
+With 30+ years and 9,000+ projects, all plans are prepared in-house for permit. Pasquini Engineering is licensed in Arizona, California, Colorado, Connecticut, Idaho, Nevada, Oregon, Texas, Virginia, and Washington, with California offices in Bakersfield, Santa Rosa, Sacramento, San Jose, Paradise, the Central Coast, Central Valley, Long Beach, and Southern California.
 
 ## Services
 
@@ -40,4 +40,5 @@ With 30+ years and 9,000+ projects, all plans are prepared in-house for permit. 
 - [Nevada Engineering](https://pasquiniengineering.com/service-areas/nevada/): Engineering services for Nevada projects.
 - [Oregon Engineering](https://pasquiniengineering.com/service-areas/oregon/): Engineering services for Oregon projects.
 - [Texas Engineering](https://pasquiniengineering.com/service-areas/texas/): Engineering services for Texas projects.
+- [Virginia Engineering](https://pasquiniengineering.com/service-areas/virginia/): Engineering services for Virginia projects.
 - [Washington Engineering](https://pasquiniengineering.com/service-areas/washington/): Engineering services for Washington projects.
