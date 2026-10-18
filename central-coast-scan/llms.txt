@@ -1,0 +1,12 @@
+# Central Coast Scan
+
+> Matterport 3D scanning service based in Morro Bay, California. Delivers 3D virtual walkthroughs, 2D schematic floor plans, E57 point clouds, Revit/BIM-ready files, as-built drawings and permit-ready documentation for engineers, architects, builders, contractors and homeowners.
+
+- Founder: Jimmy Daoutis, engineering draftsman with 11+ years of experience; performs every scan on site and advises on California building permit requirements.
+- Service area: San Luis Obispo, Santa Barbara, Monterey, Kern and Ventura counties (within ~3 hours of Morro Bay).
+- Turnaround: standard 3–5 business days; 48-hour expedite available.
+- Mailing address: PO Box 1441, Morro Bay, CA 93443
+- Email: hello@centralcoastscan.com
+
+## Pages
+- [Home](https://centralcoastscan.com/): services, example scan, deliverables, process, service area, founder, pricing and quote request form.

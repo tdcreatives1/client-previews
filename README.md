@@ -7,3 +7,4 @@ Static client website previews hosted via GitHub Pages.
 - `td-creatives/` — TD Creatives Agency site (static rebuild, 8.6.26.1)
 - `outsourced-administrative-services-llc/` — Outsourced Administrative Services, LLC (lead) site preview, 9.10.26
 - `pasquini-engineering-inc/` — Pasquini Engineering, Inc. (lead) website redesign preview, 9.5.26 (updated 10.16.26, production export v3)
+- `central-coast-scan/` — Central Coast Scan (lead) website preview, 10.18.26 (production export; preview paths prefixed)

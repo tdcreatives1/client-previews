@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /quote.php
+
+Sitemap: https://centralcoastscan.com/sitemap.xml
