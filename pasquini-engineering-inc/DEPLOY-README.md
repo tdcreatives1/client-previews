@@ -1,4 +1,4 @@
-# Pasquini Engineering, Inc. — Hostinger deployment (v4, 2026-10-19)
+# Pasquini Engineering, Inc. — Hostinger deployment (v6, 2026-10-19)
 
 ## Final self-check (run on this package before export)
 | Check | Result |
@@ -10,11 +10,11 @@
 | Exactly one H1 per page | 33 / 33 |
 | Images without alt text | 0 |
 | GA4 `G-W750WRZJRL` in `<head>` | 33 / 33 |
-| TD Creatives tracking before `</body>` (no chat widget) | 33 / 33 |
+| GHL chat widget + TD Creatives tracking before `</body>` | 33 / 33 |
 | Canonical + OG + Twitter + JSON-LD | 32 / 32 (404 is noindex) |
 | References to WordPress / wp-content / preview files | 0 |
 | "Eight states" / Virginia-unlicensed wording | 0 remaining |
-| Outside requests | Google Analytics, TD Creatives tracking, Google Forms, Zoom, social links |
+| Outside requests | Google Analytics, GoHighLevel chat widget, TD Creatives tracking, Google Forms, Zoom, social links |
 
 Two files are referenced but **not in this zip because you are adding them yourself**: `/assets/images/pasquini-engineering-logo.png` and `/assets/images/california-building-design-firm-pasquini-engineering.jpg`. The check treated them as present.
 
@@ -78,8 +78,8 @@ To swap any of these back to the original photo later, drop the file in `/assets
 Interim preview URLs (`/Home.dc.html`, `/about-us.html`, `/services/*.html`, `/states/*.html`, `/areas/*.html`) all 301 to the clean URLs.
 
 ## Chat, tracking & forms
-- **No chat widget is installed.** The client is adding their own chat separately. Paste its embed code just before `</body>` on every page.
-- **Every page** ends with the TD Creatives external-tracking script (`tk_305bf3fb3e5a4d27a65db5b0bf9789f7`), placed just before `</body>` after `/assets/js/scripts.js`. **Any new page must include the same tag.** The easiest way is to duplicate an existing page.
+- **Every page** ends with the GoHighLevel chat widget (id `6a9b5fa786066d429f004c0f`) and the TD Creatives external-tracking script (`tk_305bf3fb3e5a4d27a65db5b0bf9789f7`), placed just before `</body>` after `/assets/js/scripts.js`. **Any new page must include the same two `<script>` tags.** The easiest way is to duplicate an existing page.
+- Chat conversations appear in GoHighLevel → Conversations.
 - **"Start Your Project" / "New Project Inquiry"** buttons link to the existing Google Forms.
 
 ## Favicons
