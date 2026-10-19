@@ -15,7 +15,7 @@ $('#aud-cta').addEventListener('click',function(){var r=document.querySelector('
 // viewer
 var views=$('#views');if(views){var titles=['LIVE MATTERPORT MODEL','SCHEMATIC FLOOR PLAN','ROOM CAPTURES'];tablist(views,function(i){$$('.panel').forEach(function(p,j){p.hidden=j!==i});$('#vtitle').textContent=titles[i]})}
 // reveal
-if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('rv-in');io.unobserve(e.target)}})},{threshold:.12});
 $$('main h2, .dgrid > li, .steps > li').forEach(function(el,i){if(el.getBoundingClientRect().top<innerHeight)return;el.classList.add('rv');el.style.transitionDelay=(i%3)*70+'ms';io.observe(el)})}
 // form
 var f=$('#quote-form'),sent=$('#quote-sent');if(f){f.addEventListener('submit',function(e){if(!window.fetch||!window.FormData)return;e.preventDefault();var btn=$('button[type=submit]',f),err=$('#form-err');err.hidden=true;btn.disabled=true;btn.firstChild.textContent='Sending… ';
