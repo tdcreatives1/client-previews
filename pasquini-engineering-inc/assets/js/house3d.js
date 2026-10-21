@@ -11,7 +11,7 @@
     connectedCallback() {
       if (this._started) return; this._started = true;
       this.style.display = 'block'; this.style.position = 'relative'; this.style.width = this.style.width || '100%'; this.style.height = this.style.height || '100%';
-      this.style.cursor = 'grab'; this.style.touchAction = 'none';
+      this.style.cursor = 'grab'; this.style.touchAction = 'pan-y';
       this._yaw = 0.55; this._pitch = 0.42; this._pitchTarget = 0.42; this._idle = 0; this._drag = null; this._roofLift = 0; this._progress = 0;
       import(THREE_URL).then(T => this._init(T)).catch(e => console.error('house3d', e));
     }

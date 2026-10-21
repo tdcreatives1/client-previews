@@ -1,4 +1,4 @@
-# Pasquini Engineering, Inc. — Hostinger deployment (v6, 2026-10-19)
+# Pasquini Engineering, Inc. — Hostinger deployment (v7, 2026-10-21)
 
 ## Final self-check (run on this package before export)
 | Check | Result |
@@ -17,6 +17,11 @@
 | Outside requests | Google Analytics, GoHighLevel chat widget, TD Creatives tracking, Google Forms, Zoom, social links |
 
 Two files are referenced but **not in this zip because you are adding them yourself**: `/assets/images/pasquini-engineering-logo.png` and `/assets/images/california-building-design-firm-pasquini-engineering.jpg`. The check treated them as present.
+
+## What changed in v7
+- Mobile polish (≤ 768px): 2 × 2 stats strip, even section spacing, stacked "What happens next" steps without the stagger, full-width hero buttons, compact header, team photo shown at 4:3 so people are not cropped, "Since 1990" badge kept on screen.
+- 3D build on phones: compact copy on top, model fills the rest of the screen, uses 100svh so the iOS address bar does not cut it off, and vertical swipes over the model scroll the page.
+- Stats strip now says 10 states served.
 
 ## What changed in v2
 - WordPress fallback rules removed from `.htaccess`; package is fully self-contained.

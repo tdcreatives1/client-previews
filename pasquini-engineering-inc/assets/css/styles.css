@@ -3327,3 +3327,75 @@ pe-house-3d { display: block; }
 .p404__links a{font-family:var(--font-display);font-weight:600;font-size:15px;padding:13px 26px;border-radius:2px;border:1px solid var(--ink);color:var(--ink)}
 .p404__links a:first-child{background:var(--gold);border-color:var(--gold);color:var(--black)}
 .p404__links a:hover{background:var(--ink);border-color:var(--ink);color:var(--white)}
+
+/* ---------------------------------------------------------------
+   8. Mobile polish (≤ 768px) — spacing, stats, 3D build, heritage photo
+   --------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Hero */
+  .home-hero__section { padding: 48px 20px 52px; }
+  .home-hero__h1 { font-size: 34px; line-height: 1.12; }
+  .home-hero__text { font-size: 16px; }
+  .home-hero__row { flex-wrap: wrap; gap: 12px; }
+  .home-hero__row > a { flex: 1 1 100%; text-align: center; }
+  .home-hero__row-2 { display: flex; flex-wrap: wrap; row-gap: 2px; }
+  .home-hero__link { white-space: nowrap; }
+
+  /* Stats strip: tidy 2 × 2 grid, no stagger */
+  .home-section-2__container { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0 20px; }
+  .home-section-2__div, .home-section-2__div-3, .home-section-2__div-4 { padding: 22px 12px 22px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .home-section-2__container > :nth-child(2n) { padding-left: 16px; border-left: 1px solid var(--line); }
+  .home-section-2__container > :nth-last-child(-n+2) { border-bottom: 0; }
+  .home-section-2__div-2, .home-section-2__div-5 { font-size: 30px; }
+  .home-section-2__eyebrow { font-size: 11px; letter-spacing: 0.1em; line-height: 1.45; }
+
+  /* Section rhythm */
+  .section, .section-2, .container-2, .home-services__container, .home-homeowner-projects__container, .home-cta__section { padding: 52px 20px; }
+  .home-homeowner-projects__grid { gap: 14px; margin-bottom: 28px; }
+  .home-homeowner-projects__div { aspect-ratio: 4/3; border-radius: 120px 120px 3px 3px; }
+  .home-services__card { border-right: 0; border-bottom: 1px solid var(--line); }
+
+  /* Scroll-build: compact copy on top, 3D model fills the rest */
+  .home-scroll-build__section { height: 460vh; }
+  .home-scroll-build__grid { height: 100vh; height: 100svh; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+  .home-scroll-build__stack { padding: 84px 20px 8px; justify-content: flex-start; }
+  .home-scroll-build__eyebrow { font-size: 11px; letter-spacing: 0.16em; margin-bottom: 10px; }
+  .home-scroll-build__div { font-size: 44px; margin-bottom: 6px; }
+  .home-scroll-build__h2 { font-size: 24px; margin-bottom: 8px; }
+  .home-scroll-build__text { font-size: 14.5px; line-height: 1.55; margin-bottom: 10px; }
+  .home-scroll-build__row { margin-bottom: 10px; }
+  .home-scroll-build__tag { font-size: 10.5px; padding: 4px 8px; }
+  .home-scroll-build__layer-3 { position: static; margin-top: 8px; font-size: 12px; }
+  .home-scroll-build__layer-5 { display: none; }
+  .home-scroll-build__div-4 { min-height: 260px; }
+
+  /* Heritage: show the whole team photo, keep the badge on screen */
+  .home-heritage__img { aspect-ratio: 4/3; border-radius: 140px 140px 3px 3px; object-position: center 45%; }
+  .home-heritage__layer { right: 12px; bottom: 12px; padding: 10px 14px; }
+  .home-heritage__div-2 { font-size: 28px; }
+  .home-heritage__h2 { font-size: 28px; }
+  .home-heritage__blockquote { font-size: 15.5px; }
+
+  /* What happens next: clean stacked steps */
+  .home-what-happens-next__div { margin-bottom: 32px; }
+  .home-what-happens-next__h2 { font-size: 28px; }
+  .home-what-happens-next__grid > * { padding: 24px 0 !important; border-right: 0 !important; border-bottom: 1px solid var(--line); }
+  .home-what-happens-next__grid > :last-child { border-bottom: 0; }
+  .home-what-happens-next__div-4 { font-size: 21px; }
+
+  /* General type & overflow guards */
+  h1, h2, h3 { overflow-wrap: break-word; }
+  .h2, .h2-2, .h2-3, .home-services__h2, .home-homeowner-projects__h2, .home-cta__h2 { font-size: 28px; }
+  img { max-width: 100%; }
+}
+@media (max-width: 768px) {
+  .header__container-2 { padding: 10px 20px; }
+  .header__img { height: 44px; }
+  .header__container { padding: 6px 20px; }
+  .header__row-2 { gap: 14px; }
+  .header__tag-2 { display: none; }
+}
+@media (max-width: 390px) {
+  .home-hero__h1 { font-size: 30px; }
+  .home-section-2__div-2, .home-section-2__div-5 { font-size: 26px; }
+}
